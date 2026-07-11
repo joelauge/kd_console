@@ -94,7 +94,7 @@
     <h1 class="pt">Organization</h1>
     <div class="psub">6 departments · 412 members · synced from Okta via SCIM</div>
   </div>
-  <button class="btn ghost" type="button">Invite admin</button>
+  <button class="btn ghost" id="inviteBtn" type="button">Invite admin</button>
 </div>
 <div style="display:flex; flex-direction:column; gap:10px;">
   <div class="card" style="padding:16px 20px; display:grid; grid-template-columns:1.4fr 1fr 1fr 1.4fr 1fr; gap:14px; align-items:center;">
@@ -162,6 +162,75 @@
   </main>
 </div>
 
+<!-- ===== invite admin modal ===== -->
+<div class="overlay hidden" id="mInvite"><div class="modal">
+  <div class="inv-form">
+    <div class="mtitle">Invite admin</div>
+    <div class="flabel">Email address</div>
+    <input class="input" id="invEmail" type="email" placeholder="name@acmecorp.com" style="margin-bottom:14px;">
+    <div class="flabel">Department</div>
+    <div class="chiprow" id="invDept" style="margin-bottom:14px;">
+      <button class="chipbtn active" type="button">Engineering</button>
+      <button class="chipbtn" type="button">Finance</button>
+      <button class="chipbtn" type="button">Legal</button>
+      <button class="chipbtn" type="button">Sales</button>
+      <button class="chipbtn" type="button">Research</button>
+      <button class="chipbtn" type="button">People Ops</button>
+    </div>
+    <div class="flabel">Role</div>
+    <div class="chiprow" id="invRole">
+      <button class="chipbtn active" type="button">Department admin</button>
+      <button class="chipbtn" type="button">Auditor</button>
+    </div>
+    <div class="merr hidden" id="invErr"></div>
+    <div style="font:500 11.5px 'Plus Jakarta Sans'; color:#9A95B5; margin-top:12px;">The invite expires in 7 days. Admins must complete SSO sign-in and 2FA before access is granted.</div>
+    <div class="mfoot"><button class="btn ghost mclose" type="button">Cancel</button><button class="btn primary" id="invSend" type="button">Send invite</button></div>
+  </div>
+  <div class="inv-done mcenter hidden">
+    <div class="mico green"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#12A07A" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></div>
+    <div class="mh">Invite sent</div>
+    <div class="ms" id="invDoneMsg"></div>
+    <button class="btn dark mclose" type="button" style="margin-top:18px;">Done</button>
+  </div>
+</div></div>
+
 <script src="js/shell.js"></script>
+<script>
+/* Invite admin modal */
+var mInvite = document.getElementById('mInvite');
+function invClose() { mInvite.classList.add('hidden'); }
+document.getElementById('inviteBtn').addEventListener('click', function () {
+  mInvite.querySelector('.inv-form').classList.remove('hidden');
+  mInvite.querySelector('.inv-done').classList.add('hidden');
+  document.getElementById('invEmail').value = '';
+  document.getElementById('invErr').classList.add('hidden');
+  mInvite.classList.remove('hidden');
+  document.getElementById('invEmail').focus();
+});
+mInvite.addEventListener('click', function (e) { if (e.target === mInvite) invClose(); });
+mInvite.querySelectorAll('.mclose').forEach(function (b) { b.addEventListener('click', invClose); });
+document.addEventListener('keydown', function (e) { if (e.key === 'Escape') invClose(); });
+[document.getElementById('invDept'), document.getElementById('invRole')].forEach(function (group) {
+  group.addEventListener('click', function (e) {
+    var b = e.target.closest('.chipbtn'); if (!b) return;
+    group.querySelectorAll('.chipbtn').forEach(function (x) { x.classList.remove('active'); });
+    b.classList.add('active');
+  });
+});
+document.getElementById('invSend').addEventListener('click', function () {
+  var email = document.getElementById('invEmail').value.trim();
+  var err = document.getElementById('invErr');
+  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+    err.textContent = 'Enter a valid email address.';
+    err.classList.remove('hidden');
+    return;
+  }
+  var dept = document.querySelector('#invDept .chipbtn.active').textContent;
+  var role = document.querySelector('#invRole .chipbtn.active').textContent;
+  document.getElementById('invDoneMsg').textContent = email + ' was invited as ' + role + ' for ' + dept + '. They\u2019ll appear here once they accept.';
+  mInvite.querySelector('.inv-form').classList.add('hidden');
+  mInvite.querySelector('.inv-done').classList.remove('hidden');
+});
+</script>
 </body>
 </html>
