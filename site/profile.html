@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Profile & account — KnowDrive Enterprise Console</title>
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+<header class="topbar">
+  <a class="brand" href="index.html">
+    <img src="assets/logo.png" alt="KnowDrive">
+    <b>KnowDrive</b>
+    <span class="tag">ENTERPRISE</span>
+  </a>
+  <span class="vline"></span>
+  <div class="orgwrap">
+    <button class="orgbtn" type="button">
+      <span class="oini" style="background:linear-gradient(135deg,#6C5CE7,#4B3FC4);">AC</span>
+      <span class="oname">Acme Corp</span>
+      <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#8C8C9E" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+    </button>
+    <div class="orgmenu hidden">
+      <div class="mlabel">Switch organization</div>
+      <button class="orgopt" type="button" data-org="acme"><span class="oini" style="background:linear-gradient(135deg,#6C5CE7,#4B3FC4);">AC</span><span><span class="oname">Acme Corp</span><span class="osub">412 members · 6 stores</span></span><span class="check">✓</span></button>
+      <button class="orgopt" type="button" data-org="northwind"><span class="oini" style="background:linear-gradient(135deg,#12A07A,#0B7C63);">NL</span><span><span class="oname">Northwind Labs</span><span class="osub">38 members · 2 stores</span></span><span class="check">✓</span></button>
+      <button class="orgopt" type="button" data-org="recourse"><span class="oini" style="background:linear-gradient(135deg,#2A6FDB,#1B4FA8);">RS</span><span><span class="oname">Recourse Software</span><span class="osub">9 members · 1 store</span></span><span class="check">✓</span></button>
+    </div>
+  </div>
+  <span class="spacer"></span>
+  <button class="searchbtn" type="button">
+    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#A1A1B2" stroke-width="2.4" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
+    Search resources, docs, actions…
+    <kbd>⌘K</kbd>
+  </button>
+  <span class="spacer"></span>
+  <div class="roleseg">
+    <button type="button" data-role="platform">Platform admin</button>
+    <button type="button" data-role="security">IT / Security</button>
+    <button type="button" data-role="dept">Dept lead</button>
+  </div>
+  <a class="avatar" href="profile.html" title="Profile &amp; account">JA</a>
+</header>
+
+<div class="frame">
+  <aside class="sidebar">
+
+      <div class="navsec">
+        <div class="ntitle">Manage</div>
+        <div class="nitems">
+          <a class="navitem" data-roles="platform security dept" href="index.html">Overview</a>
+          <a class="navitem" data-roles="platform dept" href="stores.html">Knowledge stores</a>
+          <a class="navitem" data-roles="platform dept" href="provision.html">Provision</a>
+          <a class="navitem" data-roles="platform security" href="organization.html">Organization</a>
+        </div>
+      </div>
+
+      <div class="navsec">
+        <div class="ntitle">Identity & infra</div>
+        <div class="nitems">
+          <a class="navitem" data-roles="platform security" href="sso.html">SSO & identity</a>
+          <a class="navitem" data-roles="platform security" href="connectors.html">Connectors</a>
+          <a class="navitem" data-roles="platform security" href="helm.html">Helm charts</a>
+        </div>
+      </div>
+
+      <div class="navsec">
+        <div class="ntitle">Govern</div>
+        <div class="nitems">
+          <a class="navitem" data-roles="platform security" href="governance.html">Governance</a>
+          <a class="navitem" data-roles="platform security" href="audit.html">Audit log</a>
+          <a class="navitem" data-roles="platform security" href="naming.html">Naming policy</a>
+        </div>
+      </div>
+
+      <div class="navsec">
+        <div class="ntitle">Account</div>
+        <div class="nitems">
+          <a class="navitem" data-roles="platform dept" href="billing.html">Billing & pricing</a>
+        </div>
+      </div>
+    <a class="statusbox" href="status.html">
+      <span class="srow"><span class="sdot"></span>All systems operational</span>
+      <span class="ssub">SOC 2 Type II · HIPAA · ISO 27001</span>
+      <span class="slink">View status page →</span>
+    </a>
+  </aside>
+  <main class="main">
+    <div class="content">
+
+<div style="max-width:880px;">
+  <div class="card" style="padding:22px 24px; display:flex; align-items:center; gap:18px; margin-bottom:14px;">
+    <div class="avatar" style="width:58px; height:58px; font:800 20px 'Plus Jakarta Sans';">JA</div>
+    <div>
+      <div style="font:800 18px 'Plus Jakarta Sans';" id="profileName">Joel Auge</div>
+      <div style="font:500 13px 'Plus Jakarta Sans'; color:#8C8C9E; margin-top:2px;">joel@recoursellm.com · <span data-org-name>Acme Corp</span></div>
+    </div>
+    <span class="chip violet">Platform admin</span>
+    <button class="btn ghost" id="editProfileBtn" type="button" style="margin-left:auto;">Edit profile</button>
+  </div>
+
+  <div class="grid2" style="gap:14px; margin-bottom:14px;">
+    <div class="card" style="padding:20px 22px;">
+      <div class="ctitle" style="margin-bottom:14px;">Security</div>
+      <div style="display:flex; align-items:center; gap:10px; padding:11px 0; border-bottom:1px solid #F5F3FC;">
+        <div style="min-width:0;"><div style="font:700 12.5px 'Plus Jakarta Sans';">Password</div><div style="font:500 11.5px 'Plus Jakarta Sans'; color:#9A95B5; margin-top:2px;" id="pwSub">Last changed Mar 12, 2026</div></div>
+        <button class="btn ghost sm" id="pwBtn" type="button" style="margin-left:auto;">Change</button>
+      </div>
+      <div style="display:flex; align-items:center; gap:10px; padding:11px 0; border-bottom:1px solid #F5F3FC;">
+        <div style="min-width:0;"><div style="font:700 12.5px 'Plus Jakarta Sans';">Two-factor authentication</div><div style="font:500 11.5px 'Plus Jakarta Sans'; color:#9A95B5; margin-top:2px;">Authenticator app (TOTP)</div></div>
+        <span id="tfaChip" class="chip green">Enabled</span>
+        <button class="btn ghost sm" id="tfaBtn" type="button" style="margin-left:auto;">Manage</button>
+      </div>
+      <div style="display:flex; align-items:center; gap:10px; padding:11px 0;">
+        <div style="min-width:0;"><div style="font:700 12.5px 'Plus Jakarta Sans';">Passkeys</div><div style="font:500 11.5px 'Plus Jakarta Sans'; color:#9A95B5; margin-top:2px;"><span id="pkCount">2</span> registered · MacBook Pro, iPhone 16</div></div>
+        <button class="btn ghost sm" id="pkBtn" type="button" style="margin-left:auto;">Add passkey</button>
+      </div>
+    </div>
+    <div class="card" style="padding:20px 22px;">
+      <div class="ctitle" style="margin-bottom:14px;">Notifications</div>
+      <div style="display:flex; align-items:center; gap:12px; padding:11px 0; border-bottom:1px solid #F5F3FC;"><div style="min-width:0; flex:1;"><div style="font:700 12.5px 'Plus Jakarta Sans';">Product updates</div><div style="font:500 11.5px 'Plus Jakarta Sans'; color:#9A95B5; margin-top:2px;">New features and release notes</div></div><button class="toggle notif on" type="button"><span class="knob"></span></button></div>
+      <div style="display:flex; align-items:center; gap:12px; padding:11px 0; border-bottom:1px solid #F5F3FC;"><div style="min-width:0; flex:1;"><div style="font:700 12.5px 'Plus Jakarta Sans';">Usage alerts</div><div style="font:500 11.5px 'Plus Jakarta Sans'; color:#9A95B5; margin-top:2px;">Quota thresholds and anomalies</div></div><button class="toggle notif on" type="button"><span class="knob"></span></button></div>
+      <div style="display:flex; align-items:center; gap:12px; padding:11px 0; border-bottom:1px solid #F5F3FC;"><div style="min-width:0; flex:1;"><div style="font:700 12.5px 'Plus Jakarta Sans';">Billing emails</div><div style="font:500 11.5px 'Plus Jakarta Sans'; color:#9A95B5; margin-top:2px;">Invoices and spend summaries</div></div><button class="toggle notif" type="button"><span class="knob"></span></button></div>
+      <div style="display:flex; align-items:center; gap:12px; padding:11px 0;"><div style="min-width:0; flex:1;"><div style="font:700 12.5px 'Plus Jakarta Sans';">Security alerts</div><div style="font:500 11.5px 'Plus Jakarta Sans'; color:#9A95B5; margin-top:2px;">New sign-ins, grants, revocations</div></div><span class="chip violet">Always on</span></div>
+    </div>
+  </div>
+
+  <div class="card" style="padding:20px 22px; margin-bottom:14px;">
+    <div class="ctitle" style="margin-bottom:6px;">Active sessions</div>
+    <div id="sessionRows">
+      <div class="srow-item" data-label="MacBook Pro · Chrome" style="display:grid; grid-template-columns:1.6fr 1fr 1fr auto; gap:14px; align-items:center; padding:12px 0; border-bottom:1px solid #F5F3FC;"><span style="font:700 12.5px 'Plus Jakarta Sans';">MacBook Pro · Chrome</span><span class="td dim">Toronto, CA · 73.201.8.90</span><span class="td mono2">Now</span><span class="chip green">This session</span></div>
+      <div class="srow-item" data-label="iPhone 16 · KnowDrive app" style="display:grid; grid-template-columns:1.6fr 1fr 1fr auto; gap:14px; align-items:center; padding:12px 0; border-bottom:1px solid #F5F3FC;"><span style="font:700 12.5px 'Plus Jakarta Sans';">iPhone 16 · KnowDrive app</span><span class="td dim">Toronto, CA · 73.201.8.90</span><span class="td mono2">2h ago</span><button class="btn dghost sm revoke" data-kind="session" type="button">Revoke</button></div>
+      <div class="srow-item" data-label="Windows · Edge" style="display:grid; grid-template-columns:1.6fr 1fr 1fr auto; gap:14px; align-items:center; padding:12px 0; border-bottom:1px solid #F5F3FC;"><span style="font:700 12.5px 'Plus Jakarta Sans';">Windows · Edge</span><span class="td dim">Ottawa, CA · 92.14.7.101</span><span class="td mono2">Jun 30</span><button class="btn dghost sm revoke" data-kind="session" type="button">Revoke</button></div>
+    </div>
+  </div>
+
+  <div class="card" style="padding:20px 22px;">
+    <div class="ctitle" style="margin-bottom:2px;">Connected apps &amp; tokens</div>
+    <div style="font:500 12px 'Plus Jakarta Sans'; color:#8C8C9E; margin-bottom:8px;">Every IDE, CLI, and agent grant tied to your account. Revoking cuts access immediately.</div>
+    <div id="tokenRows">
+      <div class="srow-item" data-label="Claude Code · MCP" style="display:grid; grid-template-columns:1.6fr 1.4fr 1fr auto; gap:14px; align-items:center; padding:12px 0; border-bottom:1px solid #F5F3FC;"><span style="font:700 12.5px 'Plus Jakarta Sans';">Claude Code · MCP</span><span class="td mono" style="font-size:11.5px; font-weight:500;">stores:read query:run</span><span class="td mono2">12 min ago</span><button class="btn dghost sm revoke" data-kind="token" type="button">Revoke</button></div>
+      <div class="srow-item" data-label="KnowDrive CLI" style="display:grid; grid-template-columns:1.6fr 1.4fr 1fr auto; gap:14px; align-items:center; padding:12px 0; border-bottom:1px solid #F5F3FC;"><span style="font:700 12.5px 'Plus Jakarta Sans';">KnowDrive CLI</span><span class="td mono" style="font-size:11.5px; font-weight:500;">full-access</span><span class="td mono2">1h ago</span><button class="btn dghost sm revoke" data-kind="token" type="button">Revoke</button></div>
+      <div class="srow-item" data-label="Antigravity IDE · MCP" style="display:grid; grid-template-columns:1.6fr 1.4fr 1fr auto; gap:14px; align-items:center; padding:12px 0; border-bottom:1px solid #F5F3FC;"><span style="font:700 12.5px 'Plus Jakarta Sans';">Antigravity IDE · MCP</span><span class="td mono" style="font-size:11.5px; font-weight:500;">stores:read query:run</span><span class="td mono2">Jul 8</span><button class="btn dghost sm revoke" data-kind="token" type="button">Revoke</button></div>
+      <div class="srow-item" data-label="svc-ci-indexer (agent)" style="display:grid; grid-template-columns:1.6fr 1.4fr 1fr auto; gap:14px; align-items:center; padding:12px 0; border-bottom:1px solid #F5F3FC;"><span style="font:700 12.5px 'Plus Jakarta Sans';">svc-ci-indexer (agent)</span><span class="td mono" style="font-size:11.5px; font-weight:500;">ingest:write</span><span class="td mono2">4 min ago</span><button class="btn dghost sm revoke" data-kind="token" type="button">Revoke</button></div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== modals ===== -->
+<div class="overlay hidden" id="mEdit"><div class="modal">
+  <div class="mtitle">Edit profile</div>
+  <div class="flabel">Full name</div>
+  <input class="input" id="fName" value="Joel Auge" style="margin-bottom:14px;">
+  <div class="flabel">Job title</div>
+  <input class="input" id="fTitle" value="VP Engineering" style="margin-bottom:14px;">
+  <div class="flabel">Email</div>
+  <div style="display:flex; align-items:center; gap:8px; border:1px solid #ECE9F7; border-radius:11px; padding:11px 14px; background:#FBFAFE;">
+    <span style="font:500 13.5px 'Plus Jakarta Sans'; color:#8C8C9E;">joel@recoursellm.com</span>
+    <span style="margin-left:auto; font:700 10.5px 'Plus Jakarta Sans'; color:#9A95B5; background:#F3F3F7; border-radius:6px; padding:3px 7px; white-space:nowrap;">Managed by Okta</span>
+  </div>
+  <div class="mfoot"><button class="btn ghost mclose" type="button">Cancel</button><button class="btn primary" id="saveProfile" type="button">Save changes</button></div>
+</div></div>
+
+<div class="overlay hidden" id="mPw"><div class="modal">
+  <div class="pw-form">
+    <div class="mtitle">Change password</div>
+    <div class="flabel">Current password</div>
+    <input class="input" id="pwCur" type="password" style="margin-bottom:14px;">
+    <div class="flabel">New password</div>
+    <input class="input" id="pwNew" type="password" style="margin-bottom:14px;">
+    <div class="flabel">Confirm new password</div>
+    <input class="input" id="pwConf" type="password">
+    <div class="merr hidden" id="pwErr"></div>
+    <div style="font:500 11.5px 'Plus Jakarta Sans'; color:#9A95B5; margin-top:12px;">Minimum 12 characters. Signing out other sessions is recommended after a change.</div>
+    <div class="mfoot"><button class="btn ghost mclose" type="button">Cancel</button><button class="btn primary" id="pwSave" type="button">Update password</button></div>
+  </div>
+  <div class="pw-done mcenter hidden">
+    <div class="mico green"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#12A07A" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></div>
+    <div class="mh">Password updated</div>
+    <div class="ms">A confirmation email was sent to joel@recoursellm.com.</div>
+    <button class="btn dark mclose" type="button" style="margin-top:18px;">Done</button>
+  </div>
+</div></div>
+
+<div class="overlay hidden" id="mTfa"><div class="modal">
+  <div class="mtitle" style="margin-bottom:14px;">Two-factor authentication</div>
+  <div style="display:flex; align-items:center; gap:10px; border:1px solid #ECE9F7; border-radius:12px; padding:13px 15px; margin-bottom:14px;">
+    <span style="font:700 13px 'Plus Jakarta Sans';">Authenticator app (TOTP)</span>
+    <span class="chip green" id="tfaModalChip" style="margin-left:auto;">Enabled</span>
+  </div>
+  <div class="tfa-on">
+    <button class="btn ghost" id="codesBtn" type="button" style="width:100%; justify-content:flex-start; margin-bottom:10px;">View backup codes</button>
+    <div class="hidden" id="codesGrid" style="display:grid; grid-template-columns:1fr 1fr; gap:8px; background:#FBFAFE; border:1px solid #ECE9F7; border-radius:11px; padding:14px; margin-bottom:10px;"></div>
+    <button class="btn dghost" id="tfaDisable" type="button" style="width:100%;">Disable two-factor</button>
+  </div>
+  <div class="tfa-off hidden">
+    <div style="font:500 12.5px 'Plus Jakarta Sans'; color:#8C8C9E; line-height:1.6; margin-bottom:14px;">Two-factor is off. Your organization's policy requires it for admin roles — re-enable to keep provisioning access.</div>
+    <button class="btn primary" id="tfaEnable" type="button" style="width:100%;">Re-enable with authenticator app</button>
+  </div>
+  <div class="mfoot" style="margin-top:18px;"><button class="btn ghost mclose" type="button">Close</button></div>
+</div></div>
+
+<div class="overlay hidden" id="mPk"><div class="modal">
+  <div class="pk-intro mcenter">
+    <div class="mico violet"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#6C5CE7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12a10 10 0 0 1 20 0"/><path d="M5 12a7 7 0 0 1 14 0v2a5 5 0 0 1-5 5"/><path d="M8 12a4 4 0 0 1 8 0v3a2 2 0 0 1-2 2"/><path d="M11 12v6"/></svg></div>
+    <div class="mh">Add a passkey</div>
+    <div class="ms">Sign in with Touch ID, Face ID, or a security key — phishing-resistant and faster than passwords.</div>
+    <button class="btn primary" id="pkStart" type="button" style="margin-top:18px;">Continue with Touch ID</button>
+  </div>
+  <div class="pk-busy mcenter hidden">
+    <div class="spinner"></div>
+    <div class="mh" style="font-size:15px;">Waiting for Touch ID…</div>
+    <div class="ms">Confirm on your device to register this passkey.</div>
+  </div>
+  <div class="pk-done mcenter hidden">
+    <div class="mico green"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#12A07A" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></div>
+    <div class="mh">Passkey added</div>
+    <div class="ms">This MacBook Pro can now sign you in without a password.</div>
+    <button class="btn dark mclose" type="button" style="margin-top:18px;">Done</button>
+  </div>
+</div></div>
+
+<div class="overlay hidden" id="mConfirm"><div class="modal">
+  <div class="mtitle" style="margin-bottom:10px;">Revoke access?</div>
+  <div style="font:500 13px 'Plus Jakarta Sans'; color:#5A5A6E; line-height:1.6;">You're about to revoke <b id="confirmLabel" style="color:#15151F;"></b>. <span id="confirmDesc"></span></div>
+  <div class="mfoot" style="margin-top:22px;"><button class="btn ghost mclose" type="button">Cancel</button><button class="btn danger" id="confirmGo" type="button">Revoke</button></div>
+</div></div>
+    </div>
+  </main>
+</div>
+
+<script src="js/shell.js"></script>
+<script>
+function openM(id) { document.getElementById(id).classList.remove('hidden'); }
+function closeAll() { document.querySelectorAll('.overlay').forEach(function (o) { o.classList.add('hidden'); }); }
+document.querySelectorAll('.overlay').forEach(function (o) {
+  o.addEventListener('click', function (e) { if (e.target === o) closeAll(); });
+});
+document.querySelectorAll('.mclose').forEach(function (b) { b.addEventListener('click', closeAll); });
+document.addEventListener('keydown', function (e) { if (e.key === 'Escape') closeAll(); });
+
+/* notifications */
+document.querySelectorAll('.toggle.notif').forEach(function (t) {
+  t.addEventListener('click', function () { t.classList.toggle('on'); });
+});
+
+/* edit profile */
+document.getElementById('editProfileBtn').addEventListener('click', function () { openM('mEdit'); });
+document.getElementById('saveProfile').addEventListener('click', function () {
+  document.getElementById('profileName').textContent = document.getElementById('fName').value || 'Joel Auge';
+  closeAll();
+});
+
+/* change password */
+document.getElementById('pwBtn').addEventListener('click', function () {
+  document.querySelector('#mPw .pw-form').classList.remove('hidden');
+  document.querySelector('#mPw .pw-done').classList.add('hidden');
+  ['pwCur','pwNew','pwConf'].forEach(function (i) { document.getElementById(i).value = ''; });
+  document.getElementById('pwErr').classList.add('hidden');
+  openM('mPw');
+});
+document.getElementById('pwSave').addEventListener('click', function () {
+  var cur = document.getElementById('pwCur').value, nw = document.getElementById('pwNew').value, cf = document.getElementById('pwConf').value;
+  var err = document.getElementById('pwErr');
+  var msg = !cur ? 'Enter your current password.' : nw.length < 12 ? 'New password must be at least 12 characters.' : nw !== cf ? 'New passwords don\u2019t match.' : '';
+  if (msg) { err.textContent = msg; err.classList.remove('hidden'); return; }
+  document.querySelector('#mPw .pw-form').classList.add('hidden');
+  document.querySelector('#mPw .pw-done').classList.remove('hidden');
+  document.getElementById('pwSub').textContent = 'Last changed just now';
+});
+
+/* 2FA */
+var tfaOn = true, codesSeed = 1;
+function renderCodes() {
+  var g = document.getElementById('codesGrid'), html = '';
+  for (var i = 0; i < 8; i++) {
+    var n = String((codesSeed * 7919 + i * 104729) % 100000000).padStart(8, '0');
+    html += '<span style="font:600 12px JetBrains Mono, monospace; color:#4B3FC4;">' + n.slice(0,4) + '-' + n.slice(4) + '</span>';
+  }
+  html += '<button id="regen" style="grid-column:1 / -1; margin-top:4px; padding:8px; border:none; border-radius:8px; background:none; cursor:pointer; font:700 11.5px Plus Jakarta Sans; color:#6C5CE7;">Regenerate codes</button>';
+  g.innerHTML = html;
+  g.querySelector('#regen').addEventListener('click', function () { codesSeed++; renderCodes(); });
+}
+function renderTfa() {
+  document.querySelector('#mTfa .tfa-on').classList.toggle('hidden', !tfaOn);
+  document.querySelector('#mTfa .tfa-off').classList.toggle('hidden', tfaOn);
+  [document.getElementById('tfaChip'), document.getElementById('tfaModalChip')].forEach(function (c) {
+    c.className = 'chip ' + (tfaOn ? 'green' : 'amber');
+    c.textContent = tfaOn ? 'Enabled' : 'Disabled';
+  });
+  if (document.getElementById('tfaModalChip').style) document.getElementById('tfaModalChip').style.marginLeft = 'auto';
+}
+document.getElementById('tfaBtn').addEventListener('click', function () { document.getElementById('codesGrid').classList.add('hidden'); document.getElementById('codesBtn').textContent = 'View backup codes'; openM('mTfa'); });
+document.getElementById('codesBtn').addEventListener('click', function () {
+  var g = document.getElementById('codesGrid');
+  var show = g.classList.contains('hidden');
+  if (show) renderCodes();
+  g.classList.toggle('hidden', !show);
+  this.textContent = show ? 'Hide backup codes' : 'View backup codes';
+});
+document.getElementById('tfaDisable').addEventListener('click', function () { tfaOn = false; renderTfa(); });
+document.getElementById('tfaEnable').addEventListener('click', function () { tfaOn = true; renderTfa(); });
+
+/* passkey */
+document.getElementById('pkBtn').addEventListener('click', function () {
+  document.querySelector('#mPk .pk-intro').classList.remove('hidden');
+  document.querySelector('#mPk .pk-busy').classList.add('hidden');
+  document.querySelector('#mPk .pk-done').classList.add('hidden');
+  openM('mPk');
+});
+document.getElementById('pkStart').addEventListener('click', function () {
+  document.querySelector('#mPk .pk-intro').classList.add('hidden');
+  document.querySelector('#mPk .pk-busy').classList.remove('hidden');
+  setTimeout(function () {
+    document.querySelector('#mPk .pk-busy').classList.add('hidden');
+    document.querySelector('#mPk .pk-done').classList.remove('hidden');
+    var c = document.getElementById('pkCount');
+    c.textContent = String(+c.textContent + 1);
+  }, 1500);
+});
+
+/* revoke confirm */
+var pendingRow = null;
+document.querySelectorAll('.revoke').forEach(function (b) {
+  b.addEventListener('click', function () {
+    pendingRow = b.closest('.srow-item');
+    document.getElementById('confirmLabel').textContent = pendingRow.dataset.label;
+    document.getElementById('confirmDesc').textContent = b.dataset.kind === 'session'
+      ? 'The device will be signed out immediately and will need to authenticate again.'
+      : 'The app or agent loses access immediately. Any in-flight requests will fail.';
+    openM('mConfirm');
+  });
+});
+document.getElementById('confirmGo').addEventListener('click', function () {
+  if (pendingRow) pendingRow.remove();
+  closeAll();
+});
+</script>
+</body>
+</html>

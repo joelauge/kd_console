@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Knowledge stores — KnowDrive Enterprise Console</title>
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+<header class="topbar">
+  <a class="brand" href="index.html">
+    <img src="assets/logo.png" alt="KnowDrive">
+    <b>KnowDrive</b>
+    <span class="tag">ENTERPRISE</span>
+  </a>
+  <span class="vline"></span>
+  <div class="orgwrap">
+    <button class="orgbtn" type="button">
+      <span class="oini" style="background:linear-gradient(135deg,#6C5CE7,#4B3FC4);">AC</span>
+      <span class="oname">Acme Corp</span>
+      <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#8C8C9E" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+    </button>
+    <div class="orgmenu hidden">
+      <div class="mlabel">Switch organization</div>
+      <button class="orgopt" type="button" data-org="acme"><span class="oini" style="background:linear-gradient(135deg,#6C5CE7,#4B3FC4);">AC</span><span><span class="oname">Acme Corp</span><span class="osub">412 members · 6 stores</span></span><span class="check">✓</span></button>
+      <button class="orgopt" type="button" data-org="northwind"><span class="oini" style="background:linear-gradient(135deg,#12A07A,#0B7C63);">NL</span><span><span class="oname">Northwind Labs</span><span class="osub">38 members · 2 stores</span></span><span class="check">✓</span></button>
+      <button class="orgopt" type="button" data-org="recourse"><span class="oini" style="background:linear-gradient(135deg,#2A6FDB,#1B4FA8);">RS</span><span><span class="oname">Recourse Software</span><span class="osub">9 members · 1 store</span></span><span class="check">✓</span></button>
+    </div>
+  </div>
+  <span class="spacer"></span>
+  <button class="searchbtn" type="button">
+    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#A1A1B2" stroke-width="2.4" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
+    Search resources, docs, actions…
+    <kbd>⌘K</kbd>
+  </button>
+  <span class="spacer"></span>
+  <div class="roleseg">
+    <button type="button" data-role="platform">Platform admin</button>
+    <button type="button" data-role="security">IT / Security</button>
+    <button type="button" data-role="dept">Dept lead</button>
+  </div>
+  <a class="avatar" href="profile.html" title="Profile &amp; account">JA</a>
+</header>
+
+<div class="frame">
+  <aside class="sidebar">
+
+      <div class="navsec">
+        <div class="ntitle">Manage</div>
+        <div class="nitems">
+          <a class="navitem" data-roles="platform security dept" href="index.html">Overview</a>
+          <a class="navitem active" data-roles="platform dept" href="stores.html">Knowledge stores</a>
+          <a class="navitem" data-roles="platform dept" href="provision.html">Provision</a>
+          <a class="navitem" data-roles="platform security" href="organization.html">Organization</a>
+        </div>
+      </div>
+
+      <div class="navsec">
+        <div class="ntitle">Identity & infra</div>
+        <div class="nitems">
+          <a class="navitem" data-roles="platform security" href="sso.html">SSO & identity</a>
+          <a class="navitem" data-roles="platform security" href="connectors.html">Connectors</a>
+          <a class="navitem" data-roles="platform security" href="helm.html">Helm charts</a>
+        </div>
+      </div>
+
+      <div class="navsec">
+        <div class="ntitle">Govern</div>
+        <div class="nitems">
+          <a class="navitem" data-roles="platform security" href="governance.html">Governance</a>
+          <a class="navitem" data-roles="platform security" href="audit.html">Audit log</a>
+          <a class="navitem" data-roles="platform security" href="naming.html">Naming policy</a>
+        </div>
+      </div>
+
+      <div class="navsec">
+        <div class="ntitle">Account</div>
+        <div class="nitems">
+          <a class="navitem" data-roles="platform dept" href="billing.html">Billing & pricing</a>
+        </div>
+      </div>
+    <a class="statusbox" href="status.html">
+      <span class="srow"><span class="sdot"></span>All systems operational</span>
+      <span class="ssub">SOC 2 Type II · HIPAA · ISO 27001</span>
+      <span class="slink">View status page →</span>
+    </a>
+  </aside>
+  <main class="main">
+    <div class="content">
+
+<div class="head-row">
+  <div>
+    <h1 class="pt">Knowledge stores</h1>
+    <div class="psub">6 stores · 719M vectors · 3.3 TB indexed</div>
+  </div>
+  <a class="btn primary" href="provision.html">+ Provision knowledge store</a>
+</div>
+<div class="card" style="overflow:hidden;">
+  <div class="thead" style="grid-template-columns:2.2fr 1fr 1fr .9fr .9fr 1fr .8fr;"><span>Store</span><span>Department</span><span>Deployment</span><span>Region</span><span>Vectors</span><span>Status</span><span style="text-align:right;">Cost / mo</span></div>
+  <a class="trow" style="grid-template-columns:2.2fr 1fr 1fr .9fr .9fr 1fr .8fr;" href="store-detail.html?id=kd-eng-prod-codebase">
+    <span class="td mono">kd-eng-prod-codebase</span><span class="td b">Engineering</span><span class="td">In-VPC</span><span class="td mono2">us-east-1</span><span class="td b">412M</span><span class="chip green">● Healthy</span><span class="td b r">$4,210</span>
+  </a>
+  <a class="trow" style="grid-template-columns:2.2fr 1fr 1fr .9fr .9fr 1fr .8fr;" href="store-detail.html?id=kd-rsch-prod-papers">
+    <span class="td mono">kd-rsch-prod-papers</span><span class="td b">Research</span><span class="td">Managed</span><span class="td mono2">us-east-1</span><span class="td b">128M</span><span class="chip green">● Healthy</span><span class="td b r">$1,485</span>
+  </a>
+  <a class="trow" style="grid-template-columns:2.2fr 1fr 1fr .9fr .9fr 1fr .8fr;" href="store-detail.html?id=kd-fin-prod-invoices">
+    <span class="td mono">kd-fin-prod-invoices</span><span class="td b">Finance</span><span class="td">BYO S3</span><span class="td mono2">us-east-1</span><span class="td b">86M</span><span class="chip green">● Healthy</span><span class="td b r">$980</span>
+  </a>
+  <a class="trow" style="grid-template-columns:2.2fr 1fr 1fr .9fr .9fr 1fr .8fr;" href="store-detail.html?id=kd-legal-prod-contracts">
+    <span class="td mono">kd-legal-prod-contracts</span><span class="td b">Legal</span><span class="td">Managed</span><span class="td mono2">eu-west-1</span><span class="td b">54M</span><span class="chip amber">● Degraded</span><span class="td b r">$742</span>
+  </a>
+  <a class="trow" style="grid-template-columns:2.2fr 1fr 1fr .9fr .9fr 1fr .8fr;" href="store-detail.html?id=kd-sales-stg-calls">
+    <span class="td mono">kd-sales-stg-calls</span><span class="td b">Sales</span><span class="td">Managed</span><span class="td mono2">us-west-2</span><span class="td b">31M</span><span class="chip violet">◌ Indexing</span><span class="td b r">$390</span>
+  </a>
+  <a class="trow" style="grid-template-columns:2.2fr 1fr 1fr .9fr .9fr 1fr .8fr;" href="store-detail.html?id=kd-hr-prod-policies">
+    <span class="td mono">kd-hr-prod-policies</span><span class="td b">People Ops</span><span class="td">On-prem</span><span class="td mono2">dc-tor-01</span><span class="td b">8M</span><span class="chip green">● Healthy</span><span class="td b r">$0</span>
+  </a>
+</div>
+    </div>
+  </main>
+</div>
+
+<script src="js/shell.js"></script>
+</body>
+</html>

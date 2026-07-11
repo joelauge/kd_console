@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Organization — KnowDrive Enterprise Console</title>
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+<header class="topbar">
+  <a class="brand" href="index.html">
+    <img src="assets/logo.png" alt="KnowDrive">
+    <b>KnowDrive</b>
+    <span class="tag">ENTERPRISE</span>
+  </a>
+  <span class="vline"></span>
+  <div class="orgwrap">
+    <button class="orgbtn" type="button">
+      <span class="oini" style="background:linear-gradient(135deg,#6C5CE7,#4B3FC4);">AC</span>
+      <span class="oname">Acme Corp</span>
+      <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#8C8C9E" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+    </button>
+    <div class="orgmenu hidden">
+      <div class="mlabel">Switch organization</div>
+      <button class="orgopt" type="button" data-org="acme"><span class="oini" style="background:linear-gradient(135deg,#6C5CE7,#4B3FC4);">AC</span><span><span class="oname">Acme Corp</span><span class="osub">412 members · 6 stores</span></span><span class="check">✓</span></button>
+      <button class="orgopt" type="button" data-org="northwind"><span class="oini" style="background:linear-gradient(135deg,#12A07A,#0B7C63);">NL</span><span><span class="oname">Northwind Labs</span><span class="osub">38 members · 2 stores</span></span><span class="check">✓</span></button>
+      <button class="orgopt" type="button" data-org="recourse"><span class="oini" style="background:linear-gradient(135deg,#2A6FDB,#1B4FA8);">RS</span><span><span class="oname">Recourse Software</span><span class="osub">9 members · 1 store</span></span><span class="check">✓</span></button>
+    </div>
+  </div>
+  <span class="spacer"></span>
+  <button class="searchbtn" type="button">
+    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#A1A1B2" stroke-width="2.4" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
+    Search resources, docs, actions…
+    <kbd>⌘K</kbd>
+  </button>
+  <span class="spacer"></span>
+  <div class="roleseg">
+    <button type="button" data-role="platform">Platform admin</button>
+    <button type="button" data-role="security">IT / Security</button>
+    <button type="button" data-role="dept">Dept lead</button>
+  </div>
+  <a class="avatar" href="profile.html" title="Profile &amp; account">JA</a>
+</header>
+
+<div class="frame">
+  <aside class="sidebar">
+
+      <div class="navsec">
+        <div class="ntitle">Manage</div>
+        <div class="nitems">
+          <a class="navitem" data-roles="platform security dept" href="index.html">Overview</a>
+          <a class="navitem" data-roles="platform dept" href="stores.html">Knowledge stores</a>
+          <a class="navitem" data-roles="platform dept" href="provision.html">Provision</a>
+          <a class="navitem active" data-roles="platform security" href="organization.html">Organization</a>
+        </div>
+      </div>
+
+      <div class="navsec">
+        <div class="ntitle">Identity & infra</div>
+        <div class="nitems">
+          <a class="navitem" data-roles="platform security" href="sso.html">SSO & identity</a>
+          <a class="navitem" data-roles="platform security" href="connectors.html">Connectors</a>
+          <a class="navitem" data-roles="platform security" href="helm.html">Helm charts</a>
+        </div>
+      </div>
+
+      <div class="navsec">
+        <div class="ntitle">Govern</div>
+        <div class="nitems">
+          <a class="navitem" data-roles="platform security" href="governance.html">Governance</a>
+          <a class="navitem" data-roles="platform security" href="audit.html">Audit log</a>
+          <a class="navitem" data-roles="platform security" href="naming.html">Naming policy</a>
+        </div>
+      </div>
+
+      <div class="navsec">
+        <div class="ntitle">Account</div>
+        <div class="nitems">
+          <a class="navitem" data-roles="platform dept" href="billing.html">Billing & pricing</a>
+        </div>
+      </div>
+    <a class="statusbox" href="status.html">
+      <span class="srow"><span class="sdot"></span>All systems operational</span>
+      <span class="ssub">SOC 2 Type II · HIPAA · ISO 27001</span>
+      <span class="slink">View status page →</span>
+    </a>
+  </aside>
+  <main class="main">
+    <div class="content">
+
+<div class="head-row">
+  <div>
+    <h1 class="pt">Organization</h1>
+    <div class="psub">6 departments · 412 members · synced from Okta via SCIM</div>
+  </div>
+  <button class="btn ghost" type="button">Invite admin</button>
+</div>
+<div style="display:flex; flex-direction:column; gap:10px;">
+  <div class="card" style="padding:16px 20px; display:grid; grid-template-columns:1.4fr 1fr 1fr 1.4fr 1fr; gap:14px; align-items:center;">
+    <div><div style="font:800 13.5px 'Plus Jakarta Sans';">Engineering</div><div style="font:500 11.5px 'Plus Jakarta Sans'; color:#9A95B5; margin-top:2px;">3 teams · 142 members</div></div>
+    <div><div class="kl" style="font:700 10.5px 'Plus Jakarta Sans'; letter-spacing:.06em; text-transform:uppercase; color:#9A95B5;">Admin</div><div class="td b" style="margin-top:2px;">M. Chen</div></div>
+    <div><div style="font:700 10.5px 'Plus Jakarta Sans'; letter-spacing:.06em; text-transform:uppercase; color:#9A95B5;">Stores</div><div class="td b" style="margin-top:2px;">2</div></div>
+    <div>
+      <div style="display:flex; justify-content:space-between; font:600 11px 'Plus Jakarta Sans'; color:#8C8C9E; margin-bottom:5px;"><span>Storage quota</span><span>1.9 / 2.5 TB</span></div>
+      <div class="bar" style="height:6px;"><div class="fill" style="width:76%;"></div></div>
+    </div>
+    <div style="text-align:right;"><span class="chip green">SCIM synced</span></div>
+  </div>
+  <div class="card" style="padding:16px 20px; display:grid; grid-template-columns:1.4fr 1fr 1fr 1.4fr 1fr; gap:14px; align-items:center;">
+    <div><div style="font:800 13.5px 'Plus Jakarta Sans';">Finance</div><div style="font:500 11.5px 'Plus Jakarta Sans'; color:#9A95B5; margin-top:2px;">2 teams · 44 members</div></div>
+    <div><div class="kl" style="font:700 10.5px 'Plus Jakarta Sans'; letter-spacing:.06em; text-transform:uppercase; color:#9A95B5;">Admin</div><div class="td b" style="margin-top:2px;">P. Okafor</div></div>
+    <div><div style="font:700 10.5px 'Plus Jakarta Sans'; letter-spacing:.06em; text-transform:uppercase; color:#9A95B5;">Stores</div><div class="td b" style="margin-top:2px;">1</div></div>
+    <div>
+      <div style="display:flex; justify-content:space-between; font:600 11px 'Plus Jakarta Sans'; color:#8C8C9E; margin-bottom:5px;"><span>Storage quota</span><span>0.4 / 1 TB</span></div>
+      <div class="bar" style="height:6px;"><div class="fill" style="width:40%;"></div></div>
+    </div>
+    <div style="text-align:right;"><span class="chip green">SCIM synced</span></div>
+  </div>
+  <div class="card" style="padding:16px 20px; display:grid; grid-template-columns:1.4fr 1fr 1fr 1.4fr 1fr; gap:14px; align-items:center;">
+    <div><div style="font:800 13.5px 'Plus Jakarta Sans';">Legal</div><div style="font:500 11.5px 'Plus Jakarta Sans'; color:#9A95B5; margin-top:2px;">1 teams · 23 members</div></div>
+    <div><div class="kl" style="font:700 10.5px 'Plus Jakarta Sans'; letter-spacing:.06em; text-transform:uppercase; color:#9A95B5;">Admin</div><div class="td b" style="margin-top:2px;">S. Ricci</div></div>
+    <div><div style="font:700 10.5px 'Plus Jakarta Sans'; letter-spacing:.06em; text-transform:uppercase; color:#9A95B5;">Stores</div><div class="td b" style="margin-top:2px;">1</div></div>
+    <div>
+      <div style="display:flex; justify-content:space-between; font:600 11px 'Plus Jakarta Sans'; color:#8C8C9E; margin-bottom:5px;"><span>Storage quota</span><span>0.26 / 0.5 TB</span></div>
+      <div class="bar" style="height:6px;"><div class="fill" style="width:52%;"></div></div>
+    </div>
+    <div style="text-align:right;"><span class="chip green">SCIM synced</span></div>
+  </div>
+  <div class="card" style="padding:16px 20px; display:grid; grid-template-columns:1.4fr 1fr 1fr 1.4fr 1fr; gap:14px; align-items:center;">
+    <div><div style="font:800 13.5px 'Plus Jakarta Sans';">Sales</div><div style="font:500 11.5px 'Plus Jakarta Sans'; color:#9A95B5; margin-top:2px;">4 teams · 96 members</div></div>
+    <div><div class="kl" style="font:700 10.5px 'Plus Jakarta Sans'; letter-spacing:.06em; text-transform:uppercase; color:#9A95B5;">Admin</div><div class="td b" style="margin-top:2px;">D. Kim</div></div>
+    <div><div style="font:700 10.5px 'Plus Jakarta Sans'; letter-spacing:.06em; text-transform:uppercase; color:#9A95B5;">Stores</div><div class="td b" style="margin-top:2px;">1</div></div>
+    <div>
+      <div style="display:flex; justify-content:space-between; font:600 11px 'Plus Jakarta Sans'; color:#8C8C9E; margin-bottom:5px;"><span>Storage quota</span><span>0.15 / 0.5 TB</span></div>
+      <div class="bar" style="height:6px;"><div class="fill" style="width:30%;"></div></div>
+    </div>
+    <div style="text-align:right;"><span class="chip green">SCIM synced</span></div>
+  </div>
+  <div class="card" style="padding:16px 20px; display:grid; grid-template-columns:1.4fr 1fr 1fr 1.4fr 1fr; gap:14px; align-items:center;">
+    <div><div style="font:800 13.5px 'Plus Jakarta Sans';">Research</div><div style="font:500 11.5px 'Plus Jakarta Sans'; color:#9A95B5; margin-top:2px;">2 teams · 61 members</div></div>
+    <div><div class="kl" style="font:700 10.5px 'Plus Jakarta Sans'; letter-spacing:.06em; text-transform:uppercase; color:#9A95B5;">Admin</div><div class="td b" style="margin-top:2px;">A. Osei</div></div>
+    <div><div style="font:700 10.5px 'Plus Jakarta Sans'; letter-spacing:.06em; text-transform:uppercase; color:#9A95B5;">Stores</div><div class="td b" style="margin-top:2px;">1</div></div>
+    <div>
+      <div style="display:flex; justify-content:space-between; font:600 11px 'Plus Jakarta Sans'; color:#8C8C9E; margin-bottom:5px;"><span>Storage quota</span><span>0.61 / 1 TB</span></div>
+      <div class="bar" style="height:6px;"><div class="fill" style="width:61%;"></div></div>
+    </div>
+    <div style="text-align:right;"><span class="chip green">SCIM synced</span></div>
+  </div>
+  <div class="card" style="padding:16px 20px; display:grid; grid-template-columns:1.4fr 1fr 1fr 1.4fr 1fr; gap:14px; align-items:center;">
+    <div><div style="font:800 13.5px 'Plus Jakarta Sans';">People Ops</div><div style="font:500 11.5px 'Plus Jakarta Sans'; color:#9A95B5; margin-top:2px;">1 teams · 46 members</div></div>
+    <div><div class="kl" style="font:700 10.5px 'Plus Jakarta Sans'; letter-spacing:.06em; text-transform:uppercase; color:#9A95B5;">Admin</div><div class="td b" style="margin-top:2px;">L. Tremblay</div></div>
+    <div><div style="font:700 10.5px 'Plus Jakarta Sans'; letter-spacing:.06em; text-transform:uppercase; color:#9A95B5;">Stores</div><div class="td b" style="margin-top:2px;">1</div></div>
+    <div>
+      <div style="display:flex; justify-content:space-between; font:600 11px 'Plus Jakarta Sans'; color:#8C8C9E; margin-bottom:5px;"><span>Storage quota</span><span>0.04 / 0.25 TB</span></div>
+      <div class="bar" style="height:6px;"><div class="fill" style="width:16%;"></div></div>
+    </div>
+    <div style="text-align:right;"><span class="chip green">SCIM synced</span></div>
+  </div>
+</div>
+    </div>
+  </main>
+</div>
+
+<script src="js/shell.js"></script>
+</body>
+</html>

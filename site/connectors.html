@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Connectors — KnowDrive Enterprise Console</title>
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+<header class="topbar">
+  <a class="brand" href="index.html">
+    <img src="assets/logo.png" alt="KnowDrive">
+    <b>KnowDrive</b>
+    <span class="tag">ENTERPRISE</span>
+  </a>
+  <span class="vline"></span>
+  <div class="orgwrap">
+    <button class="orgbtn" type="button">
+      <span class="oini" style="background:linear-gradient(135deg,#6C5CE7,#4B3FC4);">AC</span>
+      <span class="oname">Acme Corp</span>
+      <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#8C8C9E" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+    </button>
+    <div class="orgmenu hidden">
+      <div class="mlabel">Switch organization</div>
+      <button class="orgopt" type="button" data-org="acme"><span class="oini" style="background:linear-gradient(135deg,#6C5CE7,#4B3FC4);">AC</span><span><span class="oname">Acme Corp</span><span class="osub">412 members · 6 stores</span></span><span class="check">✓</span></button>
+      <button class="orgopt" type="button" data-org="northwind"><span class="oini" style="background:linear-gradient(135deg,#12A07A,#0B7C63);">NL</span><span><span class="oname">Northwind Labs</span><span class="osub">38 members · 2 stores</span></span><span class="check">✓</span></button>
+      <button class="orgopt" type="button" data-org="recourse"><span class="oini" style="background:linear-gradient(135deg,#2A6FDB,#1B4FA8);">RS</span><span><span class="oname">Recourse Software</span><span class="osub">9 members · 1 store</span></span><span class="check">✓</span></button>
+    </div>
+  </div>
+  <span class="spacer"></span>
+  <button class="searchbtn" type="button">
+    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#A1A1B2" stroke-width="2.4" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
+    Search resources, docs, actions…
+    <kbd>⌘K</kbd>
+  </button>
+  <span class="spacer"></span>
+  <div class="roleseg">
+    <button type="button" data-role="platform">Platform admin</button>
+    <button type="button" data-role="security">IT / Security</button>
+    <button type="button" data-role="dept">Dept lead</button>
+  </div>
+  <a class="avatar" href="profile.html" title="Profile &amp; account">JA</a>
+</header>
+
+<div class="frame">
+  <aside class="sidebar">
+
+      <div class="navsec">
+        <div class="ntitle">Manage</div>
+        <div class="nitems">
+          <a class="navitem" data-roles="platform security dept" href="index.html">Overview</a>
+          <a class="navitem" data-roles="platform dept" href="stores.html">Knowledge stores</a>
+          <a class="navitem" data-roles="platform dept" href="provision.html">Provision</a>
+          <a class="navitem" data-roles="platform security" href="organization.html">Organization</a>
+        </div>
+      </div>
+
+      <div class="navsec">
+        <div class="ntitle">Identity & infra</div>
+        <div class="nitems">
+          <a class="navitem" data-roles="platform security" href="sso.html">SSO & identity</a>
+          <a class="navitem active" data-roles="platform security" href="connectors.html">Connectors</a>
+          <a class="navitem" data-roles="platform security" href="helm.html">Helm charts</a>
+        </div>
+      </div>
+
+      <div class="navsec">
+        <div class="ntitle">Govern</div>
+        <div class="nitems">
+          <a class="navitem" data-roles="platform security" href="governance.html">Governance</a>
+          <a class="navitem" data-roles="platform security" href="audit.html">Audit log</a>
+          <a class="navitem" data-roles="platform security" href="naming.html">Naming policy</a>
+        </div>
+      </div>
+
+      <div class="navsec">
+        <div class="ntitle">Account</div>
+        <div class="nitems">
+          <a class="navitem" data-roles="platform dept" href="billing.html">Billing & pricing</a>
+        </div>
+      </div>
+    <a class="statusbox" href="status.html">
+      <span class="srow"><span class="sdot"></span>All systems operational</span>
+      <span class="ssub">SOC 2 Type II · HIPAA · ISO 27001</span>
+      <span class="slink">View status page →</span>
+    </a>
+  </aside>
+  <main class="main">
+    <div class="content">
+
+<h1 class="pt">Storage &amp; compute connectors</h1>
+<div class="psub" style="margin-bottom:22px;">Bring your own buckets, networks, and compute. KnowDrive never moves data outside your boundary.</div>
+<div class="grid2">
+  <div class="card pad" data-conn="s3"><div style="display:flex; align-items:center; justify-content:space-between;"><span class="ctitle">Amazon S3</span><span class="cstatus"><span class="chip green">● Connected</span></span></div><div style="font:500 12px 'Plus Jakarta Sans'; color:#8C8C9E; margin-top:6px; line-height:1.55;">BYO bucket for source files and vector segments. Access via scoped IAM role, never keys.</div><div class="cmeta" style="font:500 11.5px 'JetBrains Mono'; color:#4B3FC4; margin-top:10px; background:#F6F4FE; border:1px solid #E7E3F6; border-radius:8px; padding:8px 11px;">s3://acme-kd-vectors · us-east-1 · IAM role kd-access</div><div class="cform" style="margin-top:12px; flex-direction:column; gap:8px; display:none;"></div><div class="cvalidating" style="align-items:center; gap:9px; margin-top:12px; font:600 12px 'Plus Jakarta Sans'; color:#C9871F; display:none;"><span style="width:14px; height:14px; border-radius:50%; border:2px solid #FCF3E3; border-top-color:#C9871F; animation:kdSpin .9s linear infinite; display:inline-block;"></span> Validating IAM permissions &amp; encryption…</div><button class="cbtn btn ghost sm" type="button" style="margin-top:13px;">Rotate credentials</button></div>
+  <div class="card pad" data-conn="gcs"><div style="display:flex; align-items:center; justify-content:space-between;"><span class="ctitle">Google Cloud Storage</span><span class="cstatus"><span class="chip gray">Not connected</span></span></div><div style="font:500 12px 'Plus Jakarta Sans'; color:#8C8C9E; margin-top:6px; line-height:1.55;">BYO GCS bucket with workload identity federation.</div><div class="cmeta hidden" style="font:500 11.5px 'JetBrains Mono'; color:#4B3FC4; margin-top:10px; background:#F6F4FE; border:1px solid #E7E3F6; border-radius:8px; padding:8px 11px;"></div><div class="cform" style="margin-top:12px; flex-direction:column; gap:8px; display:none;"></div><div class="cvalidating" style="align-items:center; gap:9px; margin-top:12px; font:600 12px 'Plus Jakarta Sans'; color:#C9871F; display:none;"><span style="width:14px; height:14px; border-radius:50%; border:2px solid #FCF3E3; border-top-color:#C9871F; animation:kdSpin .9s linear infinite; display:inline-block;"></span> Validating IAM permissions &amp; encryption…</div><button class="cbtn btn primary sm" type="button" style="margin-top:13px;">Connect</button></div>
+  <div class="card pad" data-conn="azure"><div style="display:flex; align-items:center; justify-content:space-between;"><span class="ctitle">Azure Blob Storage</span><span class="cstatus"><span class="chip gray">Not connected</span></span></div><div style="font:500 12px 'Plus Jakarta Sans'; color:#8C8C9E; margin-top:6px; line-height:1.55;">BYO container with Entra workload identity.</div><div class="cmeta hidden" style="font:500 11.5px 'JetBrains Mono'; color:#4B3FC4; margin-top:10px; background:#F6F4FE; border:1px solid #E7E3F6; border-radius:8px; padding:8px 11px;"></div><div class="cform" style="margin-top:12px; flex-direction:column; gap:8px; display:none;"></div><div class="cvalidating" style="align-items:center; gap:9px; margin-top:12px; font:600 12px 'Plus Jakarta Sans'; color:#C9871F; display:none;"><span style="width:14px; height:14px; border-radius:50%; border:2px solid #FCF3E3; border-top-color:#C9871F; animation:kdSpin .9s linear infinite; display:inline-block;"></span> Validating IAM permissions &amp; encryption…</div><button class="cbtn btn primary sm" type="button" style="margin-top:13px;">Connect</button></div>
+  <div class="card pad" data-conn="vpc"><div style="display:flex; align-items:center; justify-content:space-between;"><span class="ctitle">VPC peering / PrivateLink</span><span class="cstatus"><span class="chip amber">◌ Pending</span></span></div><div style="font:500 12px 'Plus Jakarta Sans'; color:#8C8C9E; margin-top:6px; line-height:1.55;">Private connectivity for In-VPC stores. No public egress.</div><div class="cmeta" style="font:500 11.5px 'JetBrains Mono'; color:#4B3FC4; margin-top:10px; background:#F6F4FE; border:1px solid #E7E3F6; border-radius:8px; padding:8px 11px;">pcx-0a91… · awaiting acceptance in your AWS account</div><div class="cform" style="margin-top:12px; flex-direction:column; gap:8px; display:none;"></div><div class="cvalidating" style="align-items:center; gap:9px; margin-top:12px; font:600 12px 'Plus Jakarta Sans'; color:#C9871F; display:none;"><span style="width:14px; height:14px; border-radius:50%; border:2px solid #FCF3E3; border-top-color:#C9871F; animation:kdSpin .9s linear infinite; display:inline-block;"></span> Validating IAM permissions &amp; encryption…</div><button class="cbtn btn ghost sm" type="button" style="margin-top:13px;">View instructions</button></div>
+  <div class="card pad" data-conn="onprem"><div style="display:flex; align-items:center; justify-content:space-between;"><span class="ctitle">On-prem gateway</span><span class="cstatus"><span class="chip gray">Not connected</span></span></div><div style="font:500 12px 'Plus Jakarta Sans'; color:#8C8C9E; margin-top:6px; line-height:1.55;">Outbound-only agent for air-gapped and data-center deployments.</div><div class="cmeta hidden" style="font:500 11.5px 'JetBrains Mono'; color:#4B3FC4; margin-top:10px; background:#F6F4FE; border:1px solid #E7E3F6; border-radius:8px; padding:8px 11px;"></div><div class="cform" style="margin-top:12px; flex-direction:column; gap:8px; display:none;"></div><div class="cvalidating" style="align-items:center; gap:9px; margin-top:12px; font:600 12px 'Plus Jakarta Sans'; color:#C9871F; display:none;"><span style="width:14px; height:14px; border-radius:50%; border:2px solid #FCF3E3; border-top-color:#C9871F; animation:kdSpin .9s linear infinite; display:inline-block;"></span> Validating IAM permissions &amp; encryption…</div><button class="cbtn btn primary sm" type="button" style="margin-top:13px;">Connect</button></div>
+</div>
+    </div>
+  </main>
+</div>
+
+<script src="js/shell.js"></script>
+<script>
+var PLACEHOLDERS = {
+  gcs: ['gs://bucket-name', 'Service account email'],
+  azure: ['https://account.blob.core.windows.net/container', 'Managed identity client ID'],
+  onprem: ['Gateway endpoint', 'Enrollment token']
+};
+document.querySelectorAll('[data-conn]').forEach(function (card) {
+  var id = card.dataset.conn;
+  var btn = card.querySelector('.cbtn');
+  if (!btn || !PLACEHOLDERS[id]) return;
+  var stage = 'idle';
+  btn.addEventListener('click', function () {
+    if (stage === 'idle') {
+      stage = 'form';
+      var form = card.querySelector('.cform');
+      form.innerHTML = '<input class="input" style="font:500 12.5px JetBrains Mono, monospace; padding:10px 13px;" placeholder="' + PLACEHOLDERS[id][0] + '">' +
+                       '<input class="input" style="font:500 12.5px JetBrains Mono, monospace; padding:10px 13px;" placeholder="' + PLACEHOLDERS[id][1] + '">';
+      form.style.display = 'flex';
+      card.querySelector('.cstatus').innerHTML = '<span class="chip violet">Configuring</span>';
+      btn.textContent = 'Validate & connect';
+    } else if (stage === 'form') {
+      stage = 'validating';
+      var typed = card.querySelector('.cform input').value || PLACEHOLDERS[id][0];
+      card.querySelector('.cform').style.display = 'none';
+      card.querySelector('.cvalidating').style.display = 'flex';
+      card.querySelector('.cstatus').innerHTML = '<span class="chip amber">Validating…</span>';
+      btn.style.display = 'none';
+      setTimeout(function () {
+        card.querySelector('.cvalidating').style.display = 'none';
+        card.querySelector('.cstatus').innerHTML = '<span class="chip green">● Connected</span>';
+        var meta = card.querySelector('.cmeta');
+        meta.textContent = typed + ' · scoped access verified';
+        meta.classList.remove('hidden');
+        btn.textContent = 'Rotate credentials';
+        btn.classList.remove('primary'); btn.classList.add('ghost');
+        btn.style.display = '';
+        stage = 'connected';
+      }, 1800);
+    }
+  });
+});
+</script>
+</body>
+</html>

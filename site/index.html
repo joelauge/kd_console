@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Overview — KnowDrive Enterprise Console</title>
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+<header class="topbar">
+  <a class="brand" href="index.html">
+    <img src="assets/logo.png" alt="KnowDrive">
+    <b>KnowDrive</b>
+    <span class="tag">ENTERPRISE</span>
+  </a>
+  <span class="vline"></span>
+  <div class="orgwrap">
+    <button class="orgbtn" type="button">
+      <span class="oini" style="background:linear-gradient(135deg,#6C5CE7,#4B3FC4);">AC</span>
+      <span class="oname">Acme Corp</span>
+      <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#8C8C9E" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+    </button>
+    <div class="orgmenu hidden">
+      <div class="mlabel">Switch organization</div>
+      <button class="orgopt" type="button" data-org="acme"><span class="oini" style="background:linear-gradient(135deg,#6C5CE7,#4B3FC4);">AC</span><span><span class="oname">Acme Corp</span><span class="osub">412 members · 6 stores</span></span><span class="check">✓</span></button>
+      <button class="orgopt" type="button" data-org="northwind"><span class="oini" style="background:linear-gradient(135deg,#12A07A,#0B7C63);">NL</span><span><span class="oname">Northwind Labs</span><span class="osub">38 members · 2 stores</span></span><span class="check">✓</span></button>
+      <button class="orgopt" type="button" data-org="recourse"><span class="oini" style="background:linear-gradient(135deg,#2A6FDB,#1B4FA8);">RS</span><span><span class="oname">Recourse Software</span><span class="osub">9 members · 1 store</span></span><span class="check">✓</span></button>
+    </div>
+  </div>
+  <span class="spacer"></span>
+  <button class="searchbtn" type="button">
+    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#A1A1B2" stroke-width="2.4" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
+    Search resources, docs, actions…
+    <kbd>⌘K</kbd>
+  </button>
+  <span class="spacer"></span>
+  <div class="roleseg">
+    <button type="button" data-role="platform">Platform admin</button>
+    <button type="button" data-role="security">IT / Security</button>
+    <button type="button" data-role="dept">Dept lead</button>
+  </div>
+  <a class="avatar" href="profile.html" title="Profile &amp; account">JA</a>
+</header>
+
+<div class="frame">
+  <aside class="sidebar">
+
+      <div class="navsec">
+        <div class="ntitle">Manage</div>
+        <div class="nitems">
+          <a class="navitem active" data-roles="platform security dept" href="index.html">Overview</a>
+          <a class="navitem" data-roles="platform dept" href="stores.html">Knowledge stores</a>
+          <a class="navitem" data-roles="platform dept" href="provision.html">Provision</a>
+          <a class="navitem" data-roles="platform security" href="organization.html">Organization</a>
+        </div>
+      </div>
+
+      <div class="navsec">
+        <div class="ntitle">Identity & infra</div>
+        <div class="nitems">
+          <a class="navitem" data-roles="platform security" href="sso.html">SSO & identity</a>
+          <a class="navitem" data-roles="platform security" href="connectors.html">Connectors</a>
+          <a class="navitem" data-roles="platform security" href="helm.html">Helm charts</a>
+        </div>
+      </div>
+
+      <div class="navsec">
+        <div class="ntitle">Govern</div>
+        <div class="nitems">
+          <a class="navitem" data-roles="platform security" href="governance.html">Governance</a>
+          <a class="navitem" data-roles="platform security" href="audit.html">Audit log</a>
+          <a class="navitem" data-roles="platform security" href="naming.html">Naming policy</a>
+        </div>
+      </div>
+
+      <div class="navsec">
+        <div class="ntitle">Account</div>
+        <div class="nitems">
+          <a class="navitem" data-roles="platform dept" href="billing.html">Billing & pricing</a>
+        </div>
+      </div>
+    <a class="statusbox" href="status.html">
+      <span class="srow"><span class="sdot"></span>All systems operational</span>
+      <span class="ssub">SOC 2 Type II · HIPAA · ISO 27001</span>
+      <span class="slink">View status page →</span>
+    </a>
+  </aside>
+  <main class="main">
+    <div class="content">
+
+<div class="head-row">
+  <div>
+    <h1 class="pt">Organization overview</h1>
+    <div class="psub"><span data-org-name>Acme Corp</span> · 6 knowledge stores across 6 departments</div>
+  </div>
+  <a class="btn primary" href="provision.html">+ Provision knowledge store</a>
+</div>
+
+<div class="grid4">
+  <div class="kpi"><div class="kl">Knowledge stores</div><div class="krow"><span class="kv">6</span><span class="kd up">+1</span></div><div class="ks">across 6 departments</div></div>
+  <div class="kpi"><div class="kl">Total vectors</div><div class="krow"><span class="kv">719M</span><span class="kd up">+4.2%</span></div><div class="ks">3.3 TB indexed</div></div>
+  <div class="kpi"><div class="kl">Queries · 30d</div><div class="krow"><span class="kv">41.2M</span><span class="kd up">+12.8%</span></div><div class="ks">p95 latency 118 ms</div></div>
+  <div class="kpi"><div class="kl">Spend · MTD</div><div class="krow"><span class="kv">$7,807</span><span class="kd warn">+3.1%</span></div><div class="ks">of $12,000 committed</div></div>
+</div>
+
+<div style="display:grid; grid-template-columns:1.6fr 1fr; gap:14px;" class="section-gap">
+  <div class="card pad">
+    <div style="display:flex; align-items:center; justify-content:space-between;">
+      <span class="ctitle">Query volume · 30 days</span>
+      <span style="font:600 11.5px 'Plus Jakarta Sans'; color:#8C8C9E;">41.2M queries · p95 118 ms</span>
+    </div>
+    <div style="display:flex; align-items:flex-end; gap:7px; height:120px; margin-top:18px;"><div title="1.3M queries" style="flex:1; height:55px; border-radius:5px 5px 0 0; background:#CBC4F5;"></div><div title="1.5M queries" style="flex:1; height:64px; border-radius:5px 5px 0 0; background:#CBC4F5;"></div><div title="1.4M queries" style="flex:1; height:61px; border-radius:5px 5px 0 0; background:#CBC4F5;"></div><div title="1.8M queries" style="flex:1; height:74px; border-radius:5px 5px 0 0; background:#CBC4F5;"></div><div title="1.6M queries" style="flex:1; height:69px; border-radius:5px 5px 0 0; background:#CBC4F5;"></div><div title="1.9M queries" style="flex:1; height:78px; border-radius:5px 5px 0 0; background:#CBC4F5;"></div><div title="2.0M queries" style="flex:1; height:86px; border-radius:5px 5px 0 0; background:#CBC4F5;"></div><div title="1.9M queries" style="flex:1; height:82px; border-radius:5px 5px 0 0; background:#CBC4F5;"></div><div title="2.2M queries" style="flex:1; height:92px; border-radius:5px 5px 0 0; background:#CBC4F5;"></div><div title="2.4M queries" style="flex:1; height:101px; border-radius:5px 5px 0 0; background:#CBC4F5;"></div><div title="2.3M queries" style="flex:1; height:95px; border-radius:5px 5px 0 0; background:#CBC4F5;"></div><div title="2.6M queries" style="flex:1; height:109px; border-radius:5px 5px 0 0; background:#CBC4F5;"></div><div title="2.5M queries" style="flex:1; height:103px; border-radius:5px 5px 0 0; background:#CBC4F5;"></div><div title="2.8M queries" style="flex:1; height:118px; border-radius:5px 5px 0 0; background:#6C5CE7;"></div></div>
+    <div style="display:flex; justify-content:space-between; font:600 10.5px 'JetBrains Mono'; color:#B9B4D6; margin-top:8px;"><span>Jun 10</span><span>Jun 25</span><span>Jul 10</span></div>
+  </div>
+  <div class="card pad">
+    <div class="ctitle" style="margin-bottom:14px;">Health</div>
+    <div style="display:flex; flex-direction:column; gap:12px;">
+      <div style="display:flex; gap:10px;"><span style="flex:none; width:8px; height:8px; border-radius:50%; margin-top:4px; background:#C9871F;"></span><div><div style="font:700 12.5px 'Plus Jakarta Sans'; color:#2A2A3C;">kd-legal-prod-contracts · degraded</div><div style="font:500 11.5px 'Plus Jakarta Sans'; color:#8C8C9E; margin-top:2px; line-height:1.5;">Elevated p95 (410 ms) since 09:12 UTC. Auto-mitigation: replica added in eu-west-1.</div></div></div>
+      <div style="display:flex; gap:10px;"><span style="flex:none; width:8px; height:8px; border-radius:50%; margin-top:4px; background:#6C5CE7;"></span><div><div style="font:700 12.5px 'Plus Jakarta Sans'; color:#2A2A3C;">kd-sales-stg-calls · indexing</div><div style="font:500 11.5px 'Plus Jakarta Sans'; color:#8C8C9E; margin-top:2px; line-height:1.5;">Initial index build 72% complete · ETA 26 min.</div></div></div>
+      <div style="display:flex; gap:10px;"><span style="flex:none; width:8px; height:8px; border-radius:50%; margin-top:4px; background:#12A07A;"></span><div><div style="font:700 12.5px 'Plus Jakarta Sans'; color:#2A2A3C;">All other stores healthy</div><div style="font:500 11.5px 'Plus Jakarta Sans'; color:#8C8C9E; margin-top:2px; line-height:1.5;">4 stores · SLO 99.95% met for 41 consecutive days.</div></div></div>
+    </div>
+  </div>
+</div>
+
+<div class="card pad">
+  <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:6px;">
+    <span class="ctitle">Recent activity</span>
+    <a style="font:700 12px 'Plus Jakarta Sans';" href="audit.html">View audit log →</a>
+  </div>
+  <div style="display:grid; grid-template-columns:150px 1fr 180px; gap:14px; align-items:center; padding:11px 0; border-bottom:1px solid #F5F3FC;"><span class="td mono2">09:41 UTC today</span><span class="td">Provisioned kd-hr-prod-policies (On-prem · dc-tor-01)</span><span class="td dim" style="text-align:right;">M. Chen</span></div>
+  <div style="display:grid; grid-template-columns:150px 1fr 180px; gap:14px; align-items:center; padding:11px 0; border-bottom:1px solid #F5F3FC;"><span class="td mono2">08:07 UTC today</span><span class="td">Quota raised for Engineering: 2.0 TB → 2.5 TB</span><span class="td dim" style="text-align:right;">J. Auge</span></div>
+  <div style="display:grid; grid-template-columns:150px 1fr 180px; gap:14px; align-items:center; padding:11px 0; border-bottom:1px solid #F5F3FC;"><span class="td mono2">Yesterday 16:22</span><span class="td">SSO group okta/eng-ml granted Admin on kd-eng-prod-codebase</span><span class="td dim" style="text-align:right;">SCIM sync</span></div>
+  <div style="display:grid; grid-template-columns:150px 1fr 180px; gap:14px; align-items:center; padding:11px 0; border-bottom:1px solid #F5F3FC;"><span class="td mono2">Yesterday 11:04</span><span class="td">BYO S3 connector rotated IAM credentials</span><span class="td dim" style="text-align:right;">System</span></div>
+</div>
+    </div>
+  </main>
+</div>
+
+<script src="js/shell.js"></script>
+</body>
+</html>

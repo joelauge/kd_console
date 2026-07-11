@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Provision — KnowDrive Enterprise Console</title>
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+<header class="topbar">
+  <a class="brand" href="index.html">
+    <img src="assets/logo.png" alt="KnowDrive">
+    <b>KnowDrive</b>
+    <span class="tag">ENTERPRISE</span>
+  </a>
+  <span class="vline"></span>
+  <div class="orgwrap">
+    <button class="orgbtn" type="button">
+      <span class="oini" style="background:linear-gradient(135deg,#6C5CE7,#4B3FC4);">AC</span>
+      <span class="oname">Acme Corp</span>
+      <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#8C8C9E" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+    </button>
+    <div class="orgmenu hidden">
+      <div class="mlabel">Switch organization</div>
+      <button class="orgopt" type="button" data-org="acme"><span class="oini" style="background:linear-gradient(135deg,#6C5CE7,#4B3FC4);">AC</span><span><span class="oname">Acme Corp</span><span class="osub">412 members · 6 stores</span></span><span class="check">✓</span></button>
+      <button class="orgopt" type="button" data-org="northwind"><span class="oini" style="background:linear-gradient(135deg,#12A07A,#0B7C63);">NL</span><span><span class="oname">Northwind Labs</span><span class="osub">38 members · 2 stores</span></span><span class="check">✓</span></button>
+      <button class="orgopt" type="button" data-org="recourse"><span class="oini" style="background:linear-gradient(135deg,#2A6FDB,#1B4FA8);">RS</span><span><span class="oname">Recourse Software</span><span class="osub">9 members · 1 store</span></span><span class="check">✓</span></button>
+    </div>
+  </div>
+  <span class="spacer"></span>
+  <button class="searchbtn" type="button">
+    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#A1A1B2" stroke-width="2.4" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
+    Search resources, docs, actions…
+    <kbd>⌘K</kbd>
+  </button>
+  <span class="spacer"></span>
+  <div class="roleseg">
+    <button type="button" data-role="platform">Platform admin</button>
+    <button type="button" data-role="security">IT / Security</button>
+    <button type="button" data-role="dept">Dept lead</button>
+  </div>
+  <a class="avatar" href="profile.html" title="Profile &amp; account">JA</a>
+</header>
+
+<div class="frame">
+  <aside class="sidebar">
+
+      <div class="navsec">
+        <div class="ntitle">Manage</div>
+        <div class="nitems">
+          <a class="navitem" data-roles="platform security dept" href="index.html">Overview</a>
+          <a class="navitem" data-roles="platform dept" href="stores.html">Knowledge stores</a>
+          <a class="navitem active" data-roles="platform dept" href="provision.html">Provision</a>
+          <a class="navitem" data-roles="platform security" href="organization.html">Organization</a>
+        </div>
+      </div>
+
+      <div class="navsec">
+        <div class="ntitle">Identity & infra</div>
+        <div class="nitems">
+          <a class="navitem" data-roles="platform security" href="sso.html">SSO & identity</a>
+          <a class="navitem" data-roles="platform security" href="connectors.html">Connectors</a>
+          <a class="navitem" data-roles="platform security" href="helm.html">Helm charts</a>
+        </div>
+      </div>
+
+      <div class="navsec">
+        <div class="ntitle">Govern</div>
+        <div class="nitems">
+          <a class="navitem" data-roles="platform security" href="governance.html">Governance</a>
+          <a class="navitem" data-roles="platform security" href="audit.html">Audit log</a>
+          <a class="navitem" data-roles="platform security" href="naming.html">Naming policy</a>
+        </div>
+      </div>
+
+      <div class="navsec">
+        <div class="ntitle">Account</div>
+        <div class="nitems">
+          <a class="navitem" data-roles="platform dept" href="billing.html">Billing & pricing</a>
+        </div>
+      </div>
+    <a class="statusbox" href="status.html">
+      <span class="srow"><span class="sdot"></span>All systems operational</span>
+      <span class="ssub">SOC 2 Type II · HIPAA · ISO 27001</span>
+      <span class="slink">View status page →</span>
+    </a>
+  </aside>
+  <main class="main">
+    <div class="content">
+
+<div style="max-width:860px; margin:0 auto;">
+  <h1 class="pt">Provision a knowledge store</h1>
+  <div class="psub" style="margin-bottom:24px;">Create a governed, SSO-scoped knowledge store for a team or department.</div>
+
+  <div class="wsteps" id="wSteps">
+    <div class="wstep" data-n="1"><span class="wnum">1</span><span class="wlabel">Basics</span><span class="wline"></span></div>
+    <div class="wstep" data-n="2"><span class="wnum">2</span><span class="wlabel">Deployment</span><span class="wline"></span></div>
+    <div class="wstep" data-n="3"><span class="wnum">3</span><span class="wlabel">Capacity</span><span class="wline"></span></div>
+    <div class="wstep" data-n="4"><span class="wnum">4</span><span class="wlabel">Agents</span><span class="wline"></span></div>
+    <div class="wstep" data-n="5"><span class="wnum">5</span><span class="wlabel">Access</span><span class="wline"></span></div>
+    <div class="wstep" data-n="6"><span class="wnum">6</span><span class="wlabel">Review</span><span class="wline"></span></div>
+  </div>
+
+  <!-- Step 1 -->
+  <div class="wpanel card" data-panel="1" style="padding:26px 28px;">
+    <div class="ctitle" style="font-size:15px; margin-bottom:18px;">Basics</div>
+    <div class="flabel">Department</div>
+    <div class="chiprow" id="wDept" style="margin-bottom:20px;">
+      <button class="chipbtn" data-v="eng" type="button">Engineering</button>
+      <button class="chipbtn" data-v="fin" type="button">Finance</button>
+      <button class="chipbtn active" data-v="legal" type="button">Legal</button>
+      <button class="chipbtn" data-v="sales" type="button">Sales</button>
+      <button class="chipbtn" data-v="rsch" type="button">Research</button>
+      <button class="chipbtn" data-v="hr" type="button">People Ops</button>
+    </div>
+    <div class="flabel">Environment</div>
+    <div class="chiprow" id="wEnv" style="margin-bottom:20px;">
+      <button class="chipbtn active" data-v="prod" type="button">prod</button>
+      <button class="chipbtn" data-v="stg" type="button">stg</button>
+      <button class="chipbtn" data-v="dev" type="button">dev</button>
+    </div>
+    <div class="flabel">Store name</div>
+    <input class="input" id="wName" value="contracts" placeholder="e.g. contracts">
+    <div class="idpill"><span class="il">RESOURCE ID</span><span class="iv" id="wRid">kd-legal-prod-contracts</span><span class="ok">✓ Matches naming policy</span></div>
+  </div>
+
+  <!-- Step 2 -->
+  <div class="wpanel card hidden" data-panel="2" style="padding:26px 28px;">
+    <div class="ctitle" style="font-size:15px; margin-bottom:18px;">Deployment target</div>
+    <div class="grid2" id="wTarget">
+      <button class="selcard active" data-v="managed" type="button"><span style="display:flex; align-items:center; justify-content:space-between;"><span class="st">KnowDrive-managed cloud</span><span class="chip violet">Default</span></span><span class="sd">Fully managed, isolated tenant in KnowDrive Cloud. Fastest path to production.</span><span class="sc2">SOC 2 Type II · HIPAA BAA · ISO 27001</span></button>
+      <button class="selcard" data-v="byo" type="button"><span style="display:flex; align-items:center; justify-content:space-between;"><span class="st">BYO bucket</span><span class="chip blue">S3 / GCS / Blob</span></span><span class="sd">Vectors and source data stay in your bucket. KnowDrive computes over it via a scoped IAM role.</span><span class="sc2">Data residency: your cloud account</span></button>
+      <button class="selcard" data-v="vpc" type="button"><span style="display:flex; align-items:center; justify-content:space-between;"><span class="st">In-VPC deployment</span><span class="chip blue">Private</span></span><span class="sd">Full stack deployed inside your VPC. Traffic never leaves your network boundary.</span><span class="sc2">PrivateLink / Private Service Connect</span></button>
+      <button class="selcard" data-v="onprem" type="button"><span style="display:flex; align-items:center; justify-content:space-between;"><span class="st">On-prem / air-gapped</span><span class="chip amber">Restricted</span></span><span class="sd">Ships as hardened containers to your data center. Offline license &amp; manual updates.</span><span class="sc2">Meets air-gap &amp; sovereign requirements</span></button>
+    </div>
+  </div>
+
+  <!-- Step 3 -->
+  <div class="wpanel card hidden" data-panel="3" style="padding:26px 28px;">
+    <div class="ctitle" style="font-size:15px; margin-bottom:18px;">Capacity &amp; compute</div>
+    <div style="display:grid; grid-template-columns:1fr 1fr 1fr; gap:12px; margin-bottom:20px;" id="wTier">
+      <button class="selcard" data-v="standard" type="button"><span class="st">Standard</span><span class="sp">$490/mo</span><span class="sd">Up to 25M vectors · 4 vCPU workers · 99.9% SLO</span></button>
+      <button class="selcard active" data-v="performance" type="button"><span class="st">Performance</span><span class="sp">$1,450/mo</span><span class="sd">Up to 150M vectors · 16 vCPU workers · 99.95% SLO</span></button>
+      <button class="selcard" data-v="dedicated" type="button"><span class="st">Dedicated</span><span class="sp">$4,900/mo</span><span class="sd">1B+ vectors · 64 vCPU dedicated · 99.99% SLO</span></button>
+    </div>
+    <div class="flabel">Region</div>
+    <div class="chiprow" id="wRegion" style="margin-bottom:20px;">
+      <button class="chipbtn" data-v="us-east-1" type="button">us-east-1</button>
+      <button class="chipbtn" data-v="us-west-2" type="button">us-west-2</button>
+      <button class="chipbtn active" data-v="eu-west-1" type="button">eu-west-1</button>
+      <button class="chipbtn" data-v="ca-central-1" type="button">ca-central-1</button>
+    </div>
+    <button type="button" id="wAuto" style="display:flex; align-items:center; gap:12px; width:100%; border:1px solid #ECE9F7; border-radius:12px; background:#FBFAFE; padding:13px 16px; cursor:pointer;">
+      <span class="toggle on"><span class="knob"></span></span>
+      <span style="font:700 13px 'Plus Jakarta Sans'; color:#2A2A3C; white-space:nowrap;">Autoscale compute</span>
+      <span style="font:500 12px 'Plus Jakarta Sans'; color:#8C8C9E; text-align:left;">Scale workers with query load · caps at your dept quota</span>
+    </button>
+  </div>
+
+
+  <!-- Step 4: Agentic layer -->
+  <div class="wpanel card hidden" data-panel="4" style="padding:26px 28px;">
+    <div class="ctitle" style="font-size:15px; margin-bottom:6px;">Agentic layer</div>
+    <div class="psub" style="margin:0 0 18px;">Let your agents manage this store — automation, management, and elasticity via a scoped MCP endpoint.</div>
+    <button type="button" id="wAgents" style="display:flex; align-items:center; gap:12px; width:100%; border:1px solid #ECE9F7; border-radius:12px; background:#FBFAFE; padding:13px 16px; cursor:pointer; margin-bottom:14px;">
+      <span class="toggle on"><span class="knob"></span></span>
+      <span style="font:700 13px 'Plus Jakarta Sans'; color:#2A2A3C; white-space:nowrap;">Enable agent access</span>
+      <span style="font:500 12px 'Plus Jakarta Sans'; color:#8C8C9E; text-align:left;">Issues a scoped MCP endpoint + token at deploy · revocable anytime</span>
+    </button>
+    <div id="wAgentDetail">
+      <div style="display:flex; align-items:center; gap:8px; margin-bottom:14px; padding:10px 13px; background:#15151F; border-radius:10px;">
+        <span style="font:700 10.5px 'Plus Jakarta Sans'; letter-spacing:.07em; color:#8C8C9E;">MCP ENDPOINT</span>
+        <span style="font:600 12px 'JetBrains Mono'; color:#B9AFFA;">mcp://agents.knowdrive.ai/<span class="wRidRef">kd-legal-prod-contracts</span></span>
+      </div>
+      <div class="flabel">Agent capabilities</div>
+      <div style="display:flex; flex-direction:column; gap:9px; margin-bottom:18px;" id="wCaps">
+        <button class="grow selcard active" data-cap="elasticity" type="button" style="display:flex; align-items:center; gap:12px; padding:12px 15px; border-radius:11px;"><span class="gbox" style="flex:none; width:18px; height:18px; border-radius:5px; display:inline-flex; align-items:center; justify-content:center; font:800 11px 'Plus Jakarta Sans';">✓</span><span style="font:700 13px 'Plus Jakarta Sans'; color:#2A2A3C; white-space:nowrap;">Elasticity control</span><span style="font:500 11.5px 'Plus Jakarta Sans'; color:#8C8C9E; text-align:left;">Scale workers up/down, adjust tiers within quota</span></button>
+        <button class="grow selcard active" data-cap="indexing" type="button" style="display:flex; align-items:center; gap:12px; padding:12px 15px; border-radius:11px;"><span class="gbox" style="flex:none; width:18px; height:18px; border-radius:5px; display:inline-flex; align-items:center; justify-content:center; font:800 11px 'Plus Jakarta Sans';">✓</span><span style="font:700 13px 'Plus Jakarta Sans'; color:#2A2A3C; white-space:nowrap;">Index management</span><span style="font:500 11.5px 'Plus Jakarta Sans'; color:#8C8C9E; text-align:left;">Trigger re-embeds, compaction, freshness checks</span></button>
+        <button class="grow selcard" data-cap="query" type="button" style="display:flex; align-items:center; gap:12px; padding:12px 15px; border-radius:11px;"><span class="gbox" style="flex:none; width:18px; height:18px; border-radius:5px; display:inline-flex; align-items:center; justify-content:center; font:800 11px 'Plus Jakarta Sans';">✓</span><span style="font:700 13px 'Plus Jakarta Sans'; color:#2A2A3C; white-space:nowrap;">Query automation</span><span style="font:500 11.5px 'Plus Jakarta Sans'; color:#8C8C9E; text-align:left;">Run scheduled and reactive query pipelines</span></button>
+        <button class="grow selcard active" data-cap="cost" type="button" style="display:flex; align-items:center; gap:12px; padding:12px 15px; border-radius:11px;"><span class="gbox" style="flex:none; width:18px; height:18px; border-radius:5px; display:inline-flex; align-items:center; justify-content:center; font:800 11px 'Plus Jakarta Sans';">✓</span><span style="font:700 13px 'Plus Jakarta Sans'; color:#2A2A3C; white-space:nowrap;">Cost guardrails</span><span style="font:500 11.5px 'Plus Jakarta Sans'; color:#8C8C9E; text-align:left;">Enforce budgets, pause non-critical workloads</span></button>
+      </div>
+      <div class="flabel">Approval mode</div>
+      <div class="chiprow" id="wApproval">
+        <button class="chipbtn active" data-v="hitl" type="button">Human-in-the-loop (recommended)</button>
+        <button class="chipbtn" data-v="auto" type="button">Auto-approve within quota</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Step 5 -->
+  <div class="wpanel card hidden" data-panel="5" style="padding:26px 28px;">
+    <div class="ctitle" style="font-size:15px; margin-bottom:6px;">Access via SSO groups</div>
+    <div class="psub" style="margin:0 0 18px;">Grants sync from Okta (SAML) automatically via SCIM. Members inherit access by group.</div>
+    <div style="display:flex; flex-direction:column; gap:9px;" id="wGroups">
+      <button class="grow selcard" type="button" style="display:flex; align-items:center; gap:12px; padding:12px 15px; border-radius:11px;"><span class="gbox" style="flex:none; width:18px; height:18px; border-radius:5px; display:inline-flex; align-items:center; justify-content:center; font:800 11px 'Plus Jakarta Sans';">✓</span><span style="font:700 13px 'Plus Jakarta Sans'; color:#2A2A3C;">okta/eng-all</span><span class="td mono2">142 members</span><span class="chip gray" style="margin-left:auto;">Member</span></button>
+      <button class="grow selcard" type="button" style="display:flex; align-items:center; gap:12px; padding:12px 15px; border-radius:11px;"><span class="gbox" style="flex:none; width:18px; height:18px; border-radius:5px; display:inline-flex; align-items:center; justify-content:center; font:800 11px 'Plus Jakarta Sans';">✓</span><span style="font:700 13px 'Plus Jakarta Sans'; color:#2A2A3C;">okta/eng-ml</span><span class="td mono2">18 members</span><span class="chip violet" style="margin-left:auto;">Admin</span></button>
+      <button class="grow selcard" type="button" style="display:flex; align-items:center; gap:12px; padding:12px 15px; border-radius:11px;"><span class="gbox" style="flex:none; width:18px; height:18px; border-radius:5px; display:inline-flex; align-items:center; justify-content:center; font:800 11px 'Plus Jakarta Sans';">✓</span><span style="font:700 13px 'Plus Jakarta Sans'; color:#2A2A3C;">okta/finance-core</span><span class="td mono2">44 members</span><span class="chip gray" style="margin-left:auto;">Member</span></button>
+      <button class="grow selcard active" type="button" style="display:flex; align-items:center; gap:12px; padding:12px 15px; border-radius:11px;"><span class="gbox" style="flex:none; width:18px; height:18px; border-radius:5px; display:inline-flex; align-items:center; justify-content:center; font:800 11px 'Plus Jakarta Sans';">✓</span><span style="font:700 13px 'Plus Jakarta Sans'; color:#2A2A3C;">okta/legal-team</span><span class="td mono2">23 members</span><span class="chip gray" style="margin-left:auto;">Member</span></button>
+      <button class="grow selcard active" type="button" style="display:flex; align-items:center; gap:12px; padding:12px 15px; border-radius:11px;"><span class="gbox" style="flex:none; width:18px; height:18px; border-radius:5px; display:inline-flex; align-items:center; justify-content:center; font:800 11px 'Plus Jakarta Sans';">✓</span><span style="font:700 13px 'Plus Jakarta Sans'; color:#2A2A3C;">okta/dept-leads</span><span class="td mono2">12 members</span><span class="chip blue" style="margin-left:auto;">Auditor</span></button>
+    </div>
+  </div>
+
+  <!-- Step 5 -->
+  <div class="wpanel card hidden" data-panel="6" style="padding:26px 28px;">
+    <div class="ctitle" style="font-size:15px; margin-bottom:18px;">Review &amp; deploy</div>
+    <div id="wReview"></div>
+    <div style="display:flex; align-items:center; justify-content:space-between; margin-top:18px; padding:15px 18px; background:#F6F4FE; border:1px solid #E7E3F6; border-radius:12px;">
+      <span style="font:700 13px 'Plus Jakarta Sans'; color:#2A2A3C;">Estimated monthly cost</span>
+      <span style="font:800 20px 'Plus Jakarta Sans'; color:#4B3FC4;" id="wCost"></span>
+    </div>
+  </div>
+
+  <!-- Deploying -->
+  <div class="wpanel card hidden" data-panel="deploying" style="padding:40px 44px; text-align:center;">
+    <div class="spinner" style="width:52px; height:52px;"></div>
+    <div class="mh" style="font-size:17px;">Deploying <span id="wRid2"></span></div>
+    <div class="ms" id="wStage">Allocating isolated tenant &amp; KMS keys…</div>
+    <div style="height:8px; background:#F1EFF8; border-radius:4px; margin-top:22px; overflow:hidden;">
+      <div id="wProg" style="height:100%; width:0%; border-radius:4px; background:repeating-linear-gradient(45deg,#6C5CE7,#6C5CE7 10px,#8E7CF0 10px,#8E7CF0 20px); background-size:28px 28px; animation:kdBarStripe 1s linear infinite; transition:width .4s ease;"></div>
+    </div>
+    <div style="font:600 11.5px 'JetBrains Mono'; color:#9A95B5; margin-top:9px;"><span id="wPct">0</span>%</div>
+  </div>
+
+  <!-- Done -->
+  <div class="wpanel card hidden" data-panel="done" style="padding:40px 44px; text-align:center;">
+    <div class="mico green"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#12A07A" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></div>
+    <div class="mh" style="font-size:17px;"><span id="wRid3"></span> is live</div>
+    <div class="ms">Endpoint provisioned · SSO groups synced · encryption at rest verified</div>
+    <div style="display:flex; gap:10px; justify-content:center; margin-top:22px;">
+      <button class="btn ghost" type="button" onclick="location.reload()">Provision another</button>
+      <a class="btn primary" href="stores.html">View knowledge stores</a>
+    </div>
+  </div>
+
+  <div style="display:flex; justify-content:space-between; margin-top:18px;" id="wNav">
+    <button class="btn ghost" id="wBack" type="button" style="visibility:hidden;">Back</button>
+    <button class="btn dark" id="wNext" type="button">Continue</button>
+  </div>
+</div>
+    </div>
+  </main>
+</div>
+
+<script src="js/shell.js"></script>
+<script>
+/* Provision wizard */
+var step = 1, autoscale = true, agentsOn = true, approval = 'hitl';
+var pick = { dept:'legal', env:'prod', target:'managed', tier:'performance', region:'eu-west-1' };
+var deptNames = { eng:'Engineering', fin:'Finance', legal:'Legal', sales:'Sales', rsch:'Research', hr:'People Ops' };
+var targetNames = { managed:'KnowDrive-managed cloud', byo:'BYO bucket', vpc:'In-VPC deployment', onprem:'On-prem / air-gapped' };
+var tierNames = { standard:'Standard', performance:'Performance', dedicated:'Dedicated' };
+var tierCosts = { standard:490, performance:1450, dedicated:4900 };
+
+function slug() {
+  var n = document.getElementById('wName').value || 'name';
+  n = n.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '') || 'name';
+  return 'kd-' + pick.dept + '-' + pick.env + '-' + n;
+}
+function groupsOn() { return document.querySelectorAll('#wGroups .grow.active').length; }
+
+function renderSteps() {
+  document.querySelectorAll('#wSteps .wstep').forEach(function (s) {
+    var n = +s.dataset.n;
+    s.classList.toggle('active', n === step);
+    s.classList.toggle('done', n < step);
+    s.querySelector('.wnum').textContent = n < step ? '✓' : n;
+  });
+  document.querySelectorAll('.wpanel').forEach(function (p) {
+    p.classList.toggle('hidden', p.dataset.panel !== String(step));
+  });
+  document.getElementById('wBack').style.visibility = step > 1 ? 'visible' : 'hidden';
+  document.getElementById('wNext').textContent = step < 6 ? 'Continue' : 'Deploy store';
+  document.getElementById('wRid').textContent = slug();
+  
+  document.querySelectorAll('.wRidRef').forEach(function (el) { el.textContent = slug(); });
+  if (step === 6) {
+    var cost = pick.target === 'onprem' ? 'License-based' : '$' + (tierCosts[pick.tier] + (autoscale ? 120 : 0)).toLocaleString() + ' / mo';
+    document.getElementById('wCost').textContent = cost;
+    document.getElementById('wReview').innerHTML = [
+      ['Resource ID', slug()], ['Department', deptNames[pick.dept]],
+      ['Deployment target', targetNames[pick.target]], ['Tier & region', tierNames[pick.tier] + ' · ' + pick.region],
+      ['Autoscale', autoscale ? 'On (quota-capped)' : 'Off'], ['Access', groupsOn() + ' SSO groups via SCIM'],
+      ['Agentic layer', agentsOn ? 'Enabled · ' + document.querySelectorAll('#wCaps .grow.active').length + ' capabilities · ' + (approval === 'hitl' ? 'human-in-the-loop' : 'auto-approve within quota') : 'Disabled'],
+      ['Compliance', 'SOC 2 Type II · HIPAA · encryption at rest (AES-256) & in transit']
+    ].map(function (r) {
+      return '<div style="display:grid; grid-template-columns:180px 1fr; gap:14px; padding:11px 0; border-bottom:1px solid #F5F3FC;"><span style="font:700 12px Plus Jakarta Sans; color:#9A95B5;">' + r[0] + '</span><span style="font:600 13px Plus Jakarta Sans; color:#2A2A3C;">' + r[1] + '</span></div>';
+    }).join('');
+  }
+}
+
+[['wDept','dept'], ['wEnv','env'], ['wRegion','region']].forEach(function (cfg) {
+  document.getElementById(cfg[0]).addEventListener('click', function (e) {
+    var b = e.target.closest('.chipbtn'); if (!b) return;
+    this.querySelectorAll('.chipbtn').forEach(function (x) { x.classList.remove('active'); });
+    b.classList.add('active');
+    pick[cfg[1]] = b.dataset.v;
+    renderSteps();
+  });
+});
+[['wTarget','target'], ['wTier','tier']].forEach(function (cfg) {
+  document.getElementById(cfg[0]).addEventListener('click', function (e) {
+    var b = e.target.closest('.selcard'); if (!b) return;
+    this.querySelectorAll('.selcard').forEach(function (x) { x.classList.remove('active'); });
+    b.classList.add('active');
+    pick[cfg[1]] = b.dataset.v;
+  });
+});
+function paintGroups() {
+  document.querySelectorAll('#wGroups .grow, #wCaps .grow').forEach(function (g) {
+    var on = g.classList.contains('active');
+    var box = g.querySelector('.gbox');
+    box.style.background = on ? '#6C5CE7' : '#fff';
+    box.style.border = on ? 'none' : '1.5px solid #D9D5EC';
+    box.style.color = on ? '#fff' : 'transparent';
+  });
+}
+document.getElementById('wAgents').addEventListener('click', function () {
+  agentsOn = !agentsOn;
+  this.querySelector('.toggle').classList.toggle('on', agentsOn);
+  document.getElementById('wAgentDetail').style.display = agentsOn ? '' : 'none';
+});
+document.getElementById('wCaps').addEventListener('click', function (e) {
+  var g = e.target.closest('.grow'); if (!g) return;
+  g.classList.toggle('active');
+  paintGroups();
+});
+document.getElementById('wApproval').addEventListener('click', function (e) {
+  var b = e.target.closest('.chipbtn'); if (!b) return;
+  this.querySelectorAll('.chipbtn').forEach(function (x) { x.classList.remove('active'); });
+  b.classList.add('active');
+  approval = b.dataset.v;
+});
+document.getElementById('wGroups').addEventListener('click', function (e) {
+  var g = e.target.closest('.grow'); if (!g) return;
+  g.classList.toggle('active');
+  paintGroups();
+});
+paintGroups();
+
+document.getElementById('wAuto').addEventListener('click', function () {
+  autoscale = !autoscale;
+  this.querySelector('.toggle').classList.toggle('on', autoscale);
+});
+document.getElementById('wName').addEventListener('input', renderSteps);
+document.getElementById('wBack').addEventListener('click', function () { if (step > 1) { step--; renderSteps(); } });
+
+document.getElementById('wNext').addEventListener('click', function () {
+  if (step < 6) { step++; renderSteps(); return; }
+  document.querySelectorAll('.wpanel').forEach(function (p) { p.classList.add('hidden'); });
+  document.querySelector('[data-panel="deploying"]').classList.remove('hidden');
+  document.getElementById('wSteps').classList.add('hidden');
+  document.getElementById('wNav').classList.add('hidden');
+  document.getElementById('wRid2').textContent = slug();
+  var prog = 0;
+  var t = setInterval(function () {
+    prog = Math.min(100, prog + Math.ceil(Math.random() * 9));
+    document.getElementById('wProg').style.width = prog + '%';
+    document.getElementById('wPct').textContent = prog;
+    var msg = prog < 25 ? 'Allocating isolated tenant & KMS keys…'
+      : prog < 50 ? 'Provisioning index workers (' + pick.region + ')…'
+      : prog < 75 ? 'Wiring SSO groups & SCIM grants…'
+      : 'Running health checks & SLO probes…';
+    document.getElementById('wStage').textContent = msg;
+    if (prog >= 100) {
+      clearInterval(t);
+      setTimeout(function () {
+        document.querySelector('[data-panel="deploying"]').classList.add('hidden');
+        document.querySelector('[data-panel="done"]').classList.remove('hidden');
+        document.getElementById('wRid3').textContent = slug();
+      }, 500);
+    }
+  }, 320);
+});
+renderSteps();
+</script>
+</body>
+</html>

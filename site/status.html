@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>System status — KnowDrive Enterprise Console</title>
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+<header class="topbar">
+  <a class="brand" href="index.html">
+    <img src="assets/logo.png" alt="KnowDrive">
+    <b>KnowDrive</b>
+    <span class="tag">ENTERPRISE</span>
+  </a>
+  <span class="vline"></span>
+  <div class="orgwrap">
+    <button class="orgbtn" type="button">
+      <span class="oini" style="background:linear-gradient(135deg,#6C5CE7,#4B3FC4);">AC</span>
+      <span class="oname">Acme Corp</span>
+      <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#8C8C9E" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+    </button>
+    <div class="orgmenu hidden">
+      <div class="mlabel">Switch organization</div>
+      <button class="orgopt" type="button" data-org="acme"><span class="oini" style="background:linear-gradient(135deg,#6C5CE7,#4B3FC4);">AC</span><span><span class="oname">Acme Corp</span><span class="osub">412 members · 6 stores</span></span><span class="check">✓</span></button>
+      <button class="orgopt" type="button" data-org="northwind"><span class="oini" style="background:linear-gradient(135deg,#12A07A,#0B7C63);">NL</span><span><span class="oname">Northwind Labs</span><span class="osub">38 members · 2 stores</span></span><span class="check">✓</span></button>
+      <button class="orgopt" type="button" data-org="recourse"><span class="oini" style="background:linear-gradient(135deg,#2A6FDB,#1B4FA8);">RS</span><span><span class="oname">Recourse Software</span><span class="osub">9 members · 1 store</span></span><span class="check">✓</span></button>
+    </div>
+  </div>
+  <span class="spacer"></span>
+  <button class="searchbtn" type="button">
+    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#A1A1B2" stroke-width="2.4" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
+    Search resources, docs, actions…
+    <kbd>⌘K</kbd>
+  </button>
+  <span class="spacer"></span>
+  <div class="roleseg">
+    <button type="button" data-role="platform">Platform admin</button>
+    <button type="button" data-role="security">IT / Security</button>
+    <button type="button" data-role="dept">Dept lead</button>
+  </div>
+  <a class="avatar" href="profile.html" title="Profile &amp; account">JA</a>
+</header>
+
+<div class="frame">
+  <aside class="sidebar">
+
+      <div class="navsec">
+        <div class="ntitle">Manage</div>
+        <div class="nitems">
+          <a class="navitem" data-roles="platform security dept" href="index.html">Overview</a>
+          <a class="navitem" data-roles="platform dept" href="stores.html">Knowledge stores</a>
+          <a class="navitem" data-roles="platform dept" href="provision.html">Provision</a>
+          <a class="navitem" data-roles="platform security" href="organization.html">Organization</a>
+        </div>
+      </div>
+
+      <div class="navsec">
+        <div class="ntitle">Identity & infra</div>
+        <div class="nitems">
+          <a class="navitem" data-roles="platform security" href="sso.html">SSO & identity</a>
+          <a class="navitem" data-roles="platform security" href="connectors.html">Connectors</a>
+          <a class="navitem" data-roles="platform security" href="helm.html">Helm charts</a>
+        </div>
+      </div>
+
+      <div class="navsec">
+        <div class="ntitle">Govern</div>
+        <div class="nitems">
+          <a class="navitem" data-roles="platform security" href="governance.html">Governance</a>
+          <a class="navitem" data-roles="platform security" href="audit.html">Audit log</a>
+          <a class="navitem" data-roles="platform security" href="naming.html">Naming policy</a>
+        </div>
+      </div>
+
+      <div class="navsec">
+        <div class="ntitle">Account</div>
+        <div class="nitems">
+          <a class="navitem" data-roles="platform dept" href="billing.html">Billing & pricing</a>
+        </div>
+      </div>
+    <a class="statusbox" href="status.html">
+      <span class="srow"><span class="sdot"></span>All systems operational</span>
+      <span class="ssub">SOC 2 Type II · HIPAA · ISO 27001</span>
+      <span class="slink">View status page →</span>
+    </a>
+  </aside>
+  <main class="main">
+    <div class="content">
+
+<div style="max-width:880px;">
+  <a class="backlink" href="index.html">← Back to console</a>
+  <div style="background:#E7F6F1; border:1px solid #C9EADF; border-radius:16px; padding:20px 24px; display:flex; align-items:center; gap:14px; margin-bottom:14px;">
+    <span style="width:36px; height:36px; border-radius:50%; background:#12A07A; display:flex; align-items:center; justify-content:center; flex:none;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>
+    <div>
+      <div style="font:800 17px 'Plus Jakarta Sans'; color:#0E7C5F;">All systems operational</div>
+      <div style="font:500 12.5px 'Plus Jakarta Sans'; color:#3D8A72; margin-top:2px;">Updated 2 minutes ago · SLO 99.95% met for 41 consecutive days</div>
+    </div>
+    <button class="btn sm" type="button" style="margin-left:auto; border:1px solid #C9EADF; background:#fff; color:#0E7C5F;">Subscribe to updates</button>
+  </div>
+  <div class="card" style="padding:20px 24px; margin-bottom:14px;">
+    <div style="display:flex; flex-direction:column; gap:18px;" id="upComponents"></div>
+    <div style="display:flex; justify-content:space-between; font:600 10.5px 'JetBrains Mono'; color:#B9B4D6; margin-top:12px;"><span>90 days ago</span><span>Today</span></div>
+  </div>
+  <div class="card" style="padding:20px 24px;">
+    <div class="ctitle" style="margin-bottom:8px;">Past incidents</div>
+    <div style="display:flex; gap:14px; padding:13px 0; border-bottom:1px solid #F5F3FC; align-items:flex-start;"><span style="flex:none; font:600 11.5px 'JetBrains Mono'; color:#9A95B5; width:96px;">Jul 2, 2026</span><div style="min-width:0; flex:1;"><div style="font:700 13px 'Plus Jakarta Sans'; color:#2A2A3C;">Elevated query latency in eu-west-1</div><div style="font:500 12px 'Plus Jakarta Sans'; color:#8C8C9E; margin-top:3px; line-height:1.55;">A hot shard on one store degraded p95 latency. Auto-mitigation added a replica; RCA published to enterprise admins.</div></div><span style="flex:none; font:600 11px 'JetBrains Mono'; color:#9A95B5;">38 min</span><span class="chip green">Resolved</span></div>
+    <div style="display:flex; gap:14px; padding:13px 0; border-bottom:1px solid #F5F3FC; align-items:flex-start;"><span style="flex:none; font:600 11.5px 'JetBrains Mono'; color:#9A95B5; width:96px;">Jun 14, 2026</span><div style="min-width:0; flex:1;"><div style="font:700 13px 'Plus Jakarta Sans'; color:#2A2A3C;">SCIM sync delays from Okta</div><div style="font:500 12px 'Plus Jakarta Sans'; color:#8C8C9E; margin-top:3px; line-height:1.55;">Upstream rate limiting slowed group synchronization. Grants were queued and applied in order; none were lost.</div></div><span style="flex:none; font:600 11px 'JetBrains Mono'; color:#9A95B5;">2h 05m</span><span class="chip green">Resolved</span></div>
+    <div style="display:flex; gap:14px; padding:13px 0; border-bottom:1px solid #F5F3FC; align-items:flex-start;"><span style="flex:none; font:600 11.5px 'JetBrains Mono'; color:#9A95B5; width:96px;">May 27, 2026</span><div style="min-width:0; flex:1;"><div style="font:700 13px 'Plus Jakarta Sans'; color:#2A2A3C;">Ingestion backlog for BYO S3 connectors</div><div style="font:500 12px 'Plus Jakarta Sans'; color:#8C8C9E; margin-top:3px; line-height:1.55;">A credential rotation stalled ingest workers. Ingestion resumed automatically after rollback; no data loss.</div></div><span style="flex:none; font:600 11px 'JetBrains Mono'; color:#9A95B5;">54 min</span><span class="chip green">Resolved</span></div>
+    <div style="font:500 11.5px 'Plus Jakarta Sans'; color:#9A95B5; margin-top:14px;">Incident history retained 24 months · RCAs available to enterprise admins · SOC 2 Type II · HIPAA · ISO 27001</div>
+  </div>
+</div>
+    </div>
+  </main>
+</div>
+
+<script src="js/shell.js"></script>
+<script>
+var COMPONENTS = [
+  ['Query API', '99.99%', [82], []],
+  ['Ingestion & indexing', '99.95%', [46, 82], [64]],
+  ['Console & dashboards', '99.98%', [31], []],
+  ['SSO & SCIM provisioning', '99.97%', [64], []],
+  ['Connector gateway', '99.92%', [24, 46], [64]]
+];
+document.getElementById('upComponents').innerHTML = COMPONENTS.map(function (c) {
+  var bars = '';
+  for (var i = 0; i < 90; i++) {
+    var cls = c[3].indexOf(i) >= 0 ? ' class="red"' : c[2].indexOf(i) >= 0 ? ' class="amber"' : '';
+    var tip = i === 89 ? 'Today · operational' : (89 - i) + ' days ago';
+    bars += '<div' + cls + ' title="' + tip + '"></div>';
+  }
+  return '<div>' +
+    '<div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:7px;">' +
+      '<span style="display:flex; align-items:center; gap:8px; font:700 13px Plus Jakarta Sans; color:#2A2A3C;"><span style="width:7px; height:7px; border-radius:50%; background:#12A07A;"></span>' + c[0] + '</span>' +
+      '<span style="font:600 11.5px JetBrains Mono, monospace; color:#9A95B5;">' + c[1] + ' uptime · 90d</span>' +
+    '</div><div class="upbars">' + bars + '</div></div>';
+}).join('');
+</script>
+</body>
+</html>

@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Helm charts — KnowDrive Enterprise Console</title>
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+<header class="topbar">
+  <a class="brand" href="index.html">
+    <img src="assets/logo.png" alt="KnowDrive">
+    <b>KnowDrive</b>
+    <span class="tag">ENTERPRISE</span>
+  </a>
+  <span class="vline"></span>
+  <div class="orgwrap">
+    <button class="orgbtn" type="button">
+      <span class="oini" style="background:linear-gradient(135deg,#6C5CE7,#4B3FC4);">AC</span>
+      <span class="oname">Acme Corp</span>
+      <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#8C8C9E" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+    </button>
+    <div class="orgmenu hidden">
+      <div class="mlabel">Switch organization</div>
+      <button class="orgopt" type="button" data-org="acme"><span class="oini" style="background:linear-gradient(135deg,#6C5CE7,#4B3FC4);">AC</span><span><span class="oname">Acme Corp</span><span class="osub">412 members · 6 stores</span></span><span class="check">✓</span></button>
+      <button class="orgopt" type="button" data-org="northwind"><span class="oini" style="background:linear-gradient(135deg,#12A07A,#0B7C63);">NL</span><span><span class="oname">Northwind Labs</span><span class="osub">38 members · 2 stores</span></span><span class="check">✓</span></button>
+      <button class="orgopt" type="button" data-org="recourse"><span class="oini" style="background:linear-gradient(135deg,#2A6FDB,#1B4FA8);">RS</span><span><span class="oname">Recourse Software</span><span class="osub">9 members · 1 store</span></span><span class="check">✓</span></button>
+    </div>
+  </div>
+  <span class="spacer"></span>
+  <button class="searchbtn" type="button">
+    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#A1A1B2" stroke-width="2.4" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
+    Search resources, docs, actions…
+    <kbd>⌘K</kbd>
+  </button>
+  <span class="spacer"></span>
+  <div class="roleseg">
+    <button type="button" data-role="platform">Platform admin</button>
+    <button type="button" data-role="security">IT / Security</button>
+    <button type="button" data-role="dept">Dept lead</button>
+  </div>
+  <a class="avatar" href="profile.html" title="Profile &amp; account">JA</a>
+</header>
+
+<div class="frame">
+  <aside class="sidebar">
+
+      <div class="navsec">
+        <div class="ntitle">Manage</div>
+        <div class="nitems">
+          <a class="navitem" data-roles="platform security dept" href="index.html">Overview</a>
+          <a class="navitem" data-roles="platform dept" href="stores.html">Knowledge stores</a>
+          <a class="navitem" data-roles="platform dept" href="provision.html">Provision</a>
+          <a class="navitem" data-roles="platform security" href="organization.html">Organization</a>
+        </div>
+      </div>
+
+      <div class="navsec">
+        <div class="ntitle">Identity & infra</div>
+        <div class="nitems">
+          <a class="navitem" data-roles="platform security" href="sso.html">SSO & identity</a>
+          <a class="navitem" data-roles="platform security" href="connectors.html">Connectors</a>
+          <a class="navitem active" data-roles="platform security" href="helm.html">Helm charts</a>
+        </div>
+      </div>
+
+      <div class="navsec">
+        <div class="ntitle">Govern</div>
+        <div class="nitems">
+          <a class="navitem" data-roles="platform security" href="governance.html">Governance</a>
+          <a class="navitem" data-roles="platform security" href="audit.html">Audit log</a>
+          <a class="navitem" data-roles="platform security" href="naming.html">Naming policy</a>
+        </div>
+      </div>
+
+      <div class="navsec">
+        <div class="ntitle">Account</div>
+        <div class="nitems">
+          <a class="navitem" data-roles="platform dept" href="billing.html">Billing & pricing</a>
+        </div>
+      </div>
+    <a class="statusbox" href="status.html">
+      <span class="srow"><span class="sdot"></span>All systems operational</span>
+      <span class="ssub">SOC 2 Type II · HIPAA · ISO 27001</span>
+      <span class="slink">View status page →</span>
+    </a>
+  </aside>
+  <main class="main">
+    <div class="content">
+
+<div style="max-width:920px;">
+  <h1 class="pt">Helm charts</h1>
+  <div class="psub" style="margin-bottom:20px;">Deploy KnowDrive into your own infrastructure — In-VPC and on-prem targets pull from this registry.</div>
+  <div style="background:#15151F; border-radius:14px; padding:16px 18px; display:flex; align-items:center; gap:14px; margin-bottom:20px;">
+    <span style="font:600 12.5px 'JetBrains Mono'; color:#B9AFFA; overflow-x:auto; white-space:nowrap;">$ helm repo add knowdrive https://charts.knowdrive.ai &amp;&amp; helm repo update</span>
+    <button id="helmCopy" type="button" style="margin-left:auto; flex:none; padding:8px 14px; border:1px solid #3A3A4E; border-radius:9px; background:#23232F; cursor:pointer; font:700 11.5px 'Plus Jakarta Sans'; color:#fff; white-space:nowrap;">Copy</button>
+  </div>
+  <div style="display:flex; flex-direction:column; gap:10px;">
+  <div class="card hchart" style="overflow:hidden;">
+    <div class="hhead" style="display:grid; grid-template-columns:1.7fr 2fr .9fr .9fr 1fr; gap:14px; align-items:center; padding:15px 20px; cursor:pointer;">
+      <span style="display:flex; align-items:center; gap:10px;"><span style="flex:none; width:28px; height:28px; border-radius:8px; background:#EFEEFC; color:#4B3FC4; display:flex; align-items:center; justify-content:center; font:800 12px 'JetBrains Mono';">⎈</span><span style="font:700 13px 'JetBrains Mono';">knowdrive-core</span></span>
+      <span style="font:500 12px 'Plus Jakarta Sans'; color:#8C8C9E;">Control plane: API, planner, metadata store</span>
+      <span class="chip violet">v1.42.0</span>
+      <span class="td mono2">app 2026.7.1</span>
+      <span style="font:500 11.5px 'Plus Jakarta Sans'; color:#9A95B5; text-align:right;">Jul 8, 2026</span>
+    </div>
+    <div class="hdetail" style="border-top:1px solid #F1EFF8; padding:18px 20px;">
+      <div style="display:grid; grid-template-columns:1.2fr 1fr; gap:16px;">
+        <div>
+          <div style="font:700 11px 'Plus Jakarta Sans'; letter-spacing:.07em; text-transform:uppercase; color:#9A95B5; margin-bottom:8px;">Install</div>
+          <div class="codeblock">$ helm install knowdrive-core knowdrive/knowdrive-core \
+    --version 1.42.0 -f values.yaml</div>
+          <div style="font:700 11px 'Plus Jakarta Sans'; letter-spacing:.07em; text-transform:uppercase; color:#9A95B5; margin:14px 0 8px;">values.yaml (key excerpt)</div>
+          <div class="codeblock lite">global:
+  region: us-east-1
+  kms:
+    keyRef: acme/kd-master
+core:
+  replicas: 3
+  sso:
+    provider: okta</div>
+        </div>
+        <div>
+          <div style="font:700 11px 'Plus Jakarta Sans'; letter-spacing:.07em; text-transform:uppercase; color:#9A95B5; margin-bottom:8px;">Version history</div>
+          <div style="display:flex; gap:10px; align-items:baseline; padding:8px 0; border-bottom:1px solid #F5F3FC;"><span style="flex:none; font:700 12px 'JetBrains Mono'; width:64px;">1.42.0</span><span style="flex:none; font:500 10.5px 'JetBrains Mono'; color:#9A95B5; width:78px;">Jul 8</span><span style="font:500 11.5px 'Plus Jakarta Sans'; color:#5A5A6E;">Naming-policy enforcement at admission</span></div><div style="display:flex; gap:10px; align-items:baseline; padding:8px 0; border-bottom:1px solid #F5F3FC;"><span style="flex:none; font:700 12px 'JetBrains Mono'; width:64px;">1.41.2</span><span style="flex:none; font:500 10.5px 'JetBrains Mono'; color:#9A95B5; width:78px;">Jun 24</span><span style="font:500 11.5px 'Plus Jakarta Sans'; color:#5A5A6E;">Fix: SCIM backpressure under rate limits</span></div><div style="display:flex; gap:10px; align-items:baseline; padding:8px 0; border-bottom:1px solid #F5F3FC;"><span style="flex:none; font:700 12px 'JetBrains Mono'; width:64px;">1.40.0</span><span style="flex:none; font:500 10.5px 'JetBrains Mono'; color:#9A95B5; width:78px;">Jun 9</span><span style="font:500 11.5px 'Plus Jakarta Sans'; color:#5A5A6E;">Multi-org tenancy GA</span></div>
+          <div style="display:flex; gap:8px; margin-top:14px;">
+            <button class="btn ghost sm" type="button">Download values.yaml</button>
+            <button class="btn ghost sm" type="button">Chart README</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="card hchart" style="overflow:hidden;">
+    <div class="hhead" style="display:grid; grid-template-columns:1.7fr 2fr .9fr .9fr 1fr; gap:14px; align-items:center; padding:15px 20px; cursor:pointer;">
+      <span style="display:flex; align-items:center; gap:10px;"><span style="flex:none; width:28px; height:28px; border-radius:8px; background:#EFEEFC; color:#4B3FC4; display:flex; align-items:center; justify-content:center; font:800 12px 'JetBrains Mono';">⎈</span><span style="font:700 13px 'JetBrains Mono';">knowdrive-workers</span></span>
+      <span style="font:500 12px 'Plus Jakarta Sans'; color:#8C8C9E;">Autoscaling embed & query workers</span>
+      <span class="chip violet">v1.42.0</span>
+      <span class="td mono2">app 2026.7.1</span>
+      <span style="font:500 11.5px 'Plus Jakarta Sans'; color:#9A95B5; text-align:right;">Jul 8, 2026</span>
+    </div>
+    <div class="hdetail hidden" style="border-top:1px solid #F1EFF8; padding:18px 20px;">
+      <div style="display:grid; grid-template-columns:1.2fr 1fr; gap:16px;">
+        <div>
+          <div style="font:700 11px 'Plus Jakarta Sans'; letter-spacing:.07em; text-transform:uppercase; color:#9A95B5; margin-bottom:8px;">Install</div>
+          <div class="codeblock">$ helm install knowdrive-workers knowdrive/knowdrive-workers \
+    --version 1.42.0 -f values.yaml</div>
+          <div style="font:700 11px 'Plus Jakarta Sans'; letter-spacing:.07em; text-transform:uppercase; color:#9A95B5; margin:14px 0 8px;">values.yaml (key excerpt)</div>
+          <div class="codeblock lite">workers:
+  autoscale: true
+  minReplicas: 2
+  maxReplicas: 24
+  gpu:
+    enabled: false</div>
+        </div>
+        <div>
+          <div style="font:700 11px 'Plus Jakarta Sans'; letter-spacing:.07em; text-transform:uppercase; color:#9A95B5; margin-bottom:8px;">Version history</div>
+          <div style="display:flex; gap:10px; align-items:baseline; padding:8px 0; border-bottom:1px solid #F5F3FC;"><span style="flex:none; font:700 12px 'JetBrains Mono'; width:64px;">1.42.0</span><span style="flex:none; font:500 10.5px 'JetBrains Mono'; color:#9A95B5; width:78px;">Jul 8</span><span style="font:500 11.5px 'Plus Jakarta Sans'; color:#5A5A6E;">Quota-aware autoscaling caps</span></div><div style="display:flex; gap:10px; align-items:baseline; padding:8px 0; border-bottom:1px solid #F5F3FC;"><span style="flex:none; font:700 12px 'JetBrains Mono'; width:64px;">1.41.0</span><span style="flex:none; font:500 10.5px 'JetBrains Mono'; color:#9A95B5; width:78px;">Jun 18</span><span style="font:500 11.5px 'Plus Jakarta Sans'; color:#5A5A6E;">Hybrid sparse retrieval workers</span></div><div style="display:flex; gap:10px; align-items:baseline; padding:8px 0; border-bottom:1px solid #F5F3FC;"><span style="flex:none; font:700 12px 'JetBrains Mono'; width:64px;">1.39.3</span><span style="flex:none; font:500 10.5px 'JetBrains Mono'; color:#9A95B5; width:78px;">May 30</span><span style="font:500 11.5px 'Plus Jakarta Sans'; color:#5A5A6E;">Fix: OOM on 3072-dim batches</span></div>
+          <div style="display:flex; gap:8px; margin-top:14px;">
+            <button class="btn ghost sm" type="button">Download values.yaml</button>
+            <button class="btn ghost sm" type="button">Chart README</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="card hchart" style="overflow:hidden;">
+    <div class="hhead" style="display:grid; grid-template-columns:1.7fr 2fr .9fr .9fr 1fr; gap:14px; align-items:center; padding:15px 20px; cursor:pointer;">
+      <span style="display:flex; align-items:center; gap:10px;"><span style="flex:none; width:28px; height:28px; border-radius:8px; background:#EFEEFC; color:#4B3FC4; display:flex; align-items:center; justify-content:center; font:800 12px 'JetBrains Mono';">⎈</span><span style="font:700 13px 'JetBrains Mono';">knowdrive-gateway</span></span>
+      <span style="font:500 12px 'Plus Jakarta Sans'; color:#8C8C9E;">Ingress, auth enforcement, private connectivity</span>
+      <span class="chip violet">v0.9.4</span>
+      <span class="td mono2">app 2026.6.3</span>
+      <span style="font:500 11.5px 'Plus Jakarta Sans'; color:#9A95B5; text-align:right;">Jun 30, 2026</span>
+    </div>
+    <div class="hdetail hidden" style="border-top:1px solid #F1EFF8; padding:18px 20px;">
+      <div style="display:grid; grid-template-columns:1.2fr 1fr; gap:16px;">
+        <div>
+          <div style="font:700 11px 'Plus Jakarta Sans'; letter-spacing:.07em; text-transform:uppercase; color:#9A95B5; margin-bottom:8px;">Install</div>
+          <div class="codeblock">$ helm install knowdrive-gateway knowdrive/knowdrive-gateway \
+    --version 0.9.4 -f values.yaml</div>
+          <div style="font:700 11px 'Plus Jakarta Sans'; letter-spacing:.07em; text-transform:uppercase; color:#9A95B5; margin:14px 0 8px;">values.yaml (key excerpt)</div>
+          <div class="codeblock lite">gateway:
+  privateLink: true
+  tls:
+    certSecret: kd-gateway-tls
+  audit:
+    exportTo: s3://acme-audit</div>
+        </div>
+        <div>
+          <div style="font:700 11px 'Plus Jakarta Sans'; letter-spacing:.07em; text-transform:uppercase; color:#9A95B5; margin-bottom:8px;">Version history</div>
+          <div style="display:flex; gap:10px; align-items:baseline; padding:8px 0; border-bottom:1px solid #F5F3FC;"><span style="flex:none; font:700 12px 'JetBrains Mono'; width:64px;">0.9.4</span><span style="flex:none; font:500 10.5px 'JetBrains Mono'; color:#9A95B5; width:78px;">Jun 30</span><span style="font:500 11.5px 'Plus Jakarta Sans'; color:#5A5A6E;">mTLS between gateway and workers</span></div><div style="display:flex; gap:10px; align-items:baseline; padding:8px 0; border-bottom:1px solid #F5F3FC;"><span style="flex:none; font:700 12px 'JetBrains Mono'; width:64px;">0.9.2</span><span style="flex:none; font:500 10.5px 'JetBrains Mono'; color:#9A95B5; width:78px;">Jun 12</span><span style="font:500 11.5px 'Plus Jakarta Sans'; color:#5A5A6E;">Private Service Connect support</span></div><div style="display:flex; gap:10px; align-items:baseline; padding:8px 0; border-bottom:1px solid #F5F3FC;"><span style="flex:none; font:700 12px 'JetBrains Mono'; width:64px;">0.9.0</span><span style="flex:none; font:500 10.5px 'JetBrains Mono'; color:#9A95B5; width:78px;">May 27</span><span style="font:500 11.5px 'Plus Jakarta Sans'; color:#5A5A6E;">Initial PrivateLink GA</span></div>
+          <div style="display:flex; gap:8px; margin-top:14px;">
+            <button class="btn ghost sm" type="button">Download values.yaml</button>
+            <button class="btn ghost sm" type="button">Chart README</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="card hchart" style="overflow:hidden;">
+    <div class="hhead" style="display:grid; grid-template-columns:1.7fr 2fr .9fr .9fr 1fr; gap:14px; align-items:center; padding:15px 20px; cursor:pointer;">
+      <span style="display:flex; align-items:center; gap:10px;"><span style="flex:none; width:28px; height:28px; border-radius:8px; background:#EFEEFC; color:#4B3FC4; display:flex; align-items:center; justify-content:center; font:800 12px 'JetBrains Mono';">⎈</span><span style="font:700 13px 'JetBrains Mono';">knowdrive-connectors</span></span>
+      <span style="font:500 12px 'Plus Jakarta Sans'; color:#8C8C9E;">BYO storage & on-prem gateway agents</span>
+      <span class="chip violet">v1.18.2</span>
+      <span class="td mono2">app 2026.6.9</span>
+      <span style="font:500 11.5px 'Plus Jakarta Sans'; color:#9A95B5; text-align:right;">Jul 2, 2026</span>
+    </div>
+    <div class="hdetail hidden" style="border-top:1px solid #F1EFF8; padding:18px 20px;">
+      <div style="display:grid; grid-template-columns:1.2fr 1fr; gap:16px;">
+        <div>
+          <div style="font:700 11px 'Plus Jakarta Sans'; letter-spacing:.07em; text-transform:uppercase; color:#9A95B5; margin-bottom:8px;">Install</div>
+          <div class="codeblock">$ helm install knowdrive-connectors knowdrive/knowdrive-connectors \
+    --version 1.18.2 -f values.yaml</div>
+          <div style="font:700 11px 'Plus Jakarta Sans'; letter-spacing:.07em; text-transform:uppercase; color:#9A95B5; margin:14px 0 8px;">values.yaml (key excerpt)</div>
+          <div class="codeblock lite">connectors:
+  s3:
+    roleArn: arn:aws:iam::…:role/kd-access
+  rotation:
+    intervalDays: 30</div>
+        </div>
+        <div>
+          <div style="font:700 11px 'Plus Jakarta Sans'; letter-spacing:.07em; text-transform:uppercase; color:#9A95B5; margin-bottom:8px;">Version history</div>
+          <div style="display:flex; gap:10px; align-items:baseline; padding:8px 0; border-bottom:1px solid #F5F3FC;"><span style="flex:none; font:700 12px 'JetBrains Mono'; width:64px;">1.18.2</span><span style="flex:none; font:500 10.5px 'JetBrains Mono'; color:#9A95B5; width:78px;">Jul 2</span><span style="font:500 11.5px 'Plus Jakarta Sans'; color:#5A5A6E;">Fix: credential rotation stall (RCA 2026-05-27)</span></div><div style="display:flex; gap:10px; align-items:baseline; padding:8px 0; border-bottom:1px solid #F5F3FC;"><span style="flex:none; font:700 12px 'JetBrains Mono'; width:64px;">1.18.0</span><span style="flex:none; font:500 10.5px 'JetBrains Mono'; color:#9A95B5; width:78px;">Jun 20</span><span style="font:500 11.5px 'Plus Jakarta Sans'; color:#5A5A6E;">Azure Blob managed identity</span></div><div style="display:flex; gap:10px; align-items:baseline; padding:8px 0; border-bottom:1px solid #F5F3FC;"><span style="flex:none; font:700 12px 'JetBrains Mono'; width:64px;">1.17.1</span><span style="flex:none; font:500 10.5px 'JetBrains Mono'; color:#9A95B5; width:78px;">Jun 3</span><span style="font:500 11.5px 'Plus Jakarta Sans'; color:#5A5A6E;">GCS workload identity federation</span></div>
+          <div style="display:flex; gap:8px; margin-top:14px;">
+            <button class="btn ghost sm" type="button">Download values.yaml</button>
+            <button class="btn ghost sm" type="button">Chart README</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="card hchart" style="overflow:hidden;">
+    <div class="hhead" style="display:grid; grid-template-columns:1.7fr 2fr .9fr .9fr 1fr; gap:14px; align-items:center; padding:15px 20px; cursor:pointer;">
+      <span style="display:flex; align-items:center; gap:10px;"><span style="flex:none; width:28px; height:28px; border-radius:8px; background:#EFEEFC; color:#4B3FC4; display:flex; align-items:center; justify-content:center; font:800 12px 'JetBrains Mono';">⎈</span><span style="font:700 13px 'JetBrains Mono';">knowdrive-observability</span></span>
+      <span style="font:500 12px 'Plus Jakarta Sans'; color:#8C8C9E;">Dashboards, Prometheus rules, OTel collectors</span>
+      <span class="chip violet">v0.7.1</span>
+      <span class="td mono2">app —</span>
+      <span style="font:500 11.5px 'Plus Jakarta Sans'; color:#9A95B5; text-align:right;">Jun 21, 2026</span>
+    </div>
+    <div class="hdetail hidden" style="border-top:1px solid #F1EFF8; padding:18px 20px;">
+      <div style="display:grid; grid-template-columns:1.2fr 1fr; gap:16px;">
+        <div>
+          <div style="font:700 11px 'Plus Jakarta Sans'; letter-spacing:.07em; text-transform:uppercase; color:#9A95B5; margin-bottom:8px;">Install</div>
+          <div class="codeblock">$ helm install knowdrive-observability knowdrive/knowdrive-observability \
+    --version 0.7.1 -f values.yaml</div>
+          <div style="font:700 11px 'Plus Jakarta Sans'; letter-spacing:.07em; text-transform:uppercase; color:#9A95B5; margin:14px 0 8px;">values.yaml (key excerpt)</div>
+          <div class="codeblock lite">observability:
+  prometheus: true
+  otel:
+    endpoint: otel.acme.internal:4317
+  dashboards: grafana</div>
+        </div>
+        <div>
+          <div style="font:700 11px 'Plus Jakarta Sans'; letter-spacing:.07em; text-transform:uppercase; color:#9A95B5; margin-bottom:8px;">Version history</div>
+          <div style="display:flex; gap:10px; align-items:baseline; padding:8px 0; border-bottom:1px solid #F5F3FC;"><span style="flex:none; font:700 12px 'JetBrains Mono'; width:64px;">0.7.1</span><span style="flex:none; font:500 10.5px 'JetBrains Mono'; color:#9A95B5; width:78px;">Jun 21</span><span style="font:500 11.5px 'Plus Jakarta Sans'; color:#5A5A6E;">SLO burn-rate alerts</span></div><div style="display:flex; gap:10px; align-items:baseline; padding:8px 0; border-bottom:1px solid #F5F3FC;"><span style="flex:none; font:700 12px 'JetBrains Mono'; width:64px;">0.7.0</span><span style="flex:none; font:500 10.5px 'JetBrains Mono'; color:#9A95B5; width:78px;">Jun 7</span><span style="font:500 11.5px 'Plus Jakarta Sans'; color:#5A5A6E;">Per-store latency dashboards</span></div><div style="display:flex; gap:10px; align-items:baseline; padding:8px 0; border-bottom:1px solid #F5F3FC;"><span style="flex:none; font:700 12px 'JetBrains Mono'; width:64px;">0.6.4</span><span style="flex:none; font:500 10.5px 'JetBrains Mono'; color:#9A95B5; width:78px;">May 19</span><span style="font:500 11.5px 'Plus Jakarta Sans'; color:#5A5A6E;">Fix: OTel exporter memory leak</span></div>
+          <div style="display:flex; gap:8px; margin-top:14px;">
+            <button class="btn ghost sm" type="button">Download values.yaml</button>
+            <button class="btn ghost sm" type="button">Chart README</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+</div>
+    </div>
+  </main>
+</div>
+
+<script src="js/shell.js"></script>
+<script>
+document.getElementById('helmCopy').addEventListener('click', function () {
+  var btn = this;
+  try { navigator.clipboard.writeText('helm repo add knowdrive https://charts.knowdrive.ai && helm repo update'); } catch (e) {}
+  btn.textContent = '✓ Copied';
+  setTimeout(function () { btn.textContent = 'Copy'; }, 1800);
+});
+document.querySelectorAll('.hchart .hhead').forEach(function (head) {
+  head.addEventListener('click', function () {
+    var detail = head.parentElement.querySelector('.hdetail');
+    var wasOpen = !detail.classList.contains('hidden');
+    document.querySelectorAll('.hchart .hdetail').forEach(function (d) { d.classList.add('hidden'); });
+    if (!wasOpen) detail.classList.remove('hidden');
+  });
+});
+</script>
+</body>
+</html>

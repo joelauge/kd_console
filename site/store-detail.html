@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Store detail — KnowDrive Enterprise Console</title>
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+<header class="topbar">
+  <a class="brand" href="index.html">
+    <img src="assets/logo.png" alt="KnowDrive">
+    <b>KnowDrive</b>
+    <span class="tag">ENTERPRISE</span>
+  </a>
+  <span class="vline"></span>
+  <div class="orgwrap">
+    <button class="orgbtn" type="button">
+      <span class="oini" style="background:linear-gradient(135deg,#6C5CE7,#4B3FC4);">AC</span>
+      <span class="oname">Acme Corp</span>
+      <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#8C8C9E" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+    </button>
+    <div class="orgmenu hidden">
+      <div class="mlabel">Switch organization</div>
+      <button class="orgopt" type="button" data-org="acme"><span class="oini" style="background:linear-gradient(135deg,#6C5CE7,#4B3FC4);">AC</span><span><span class="oname">Acme Corp</span><span class="osub">412 members · 6 stores</span></span><span class="check">✓</span></button>
+      <button class="orgopt" type="button" data-org="northwind"><span class="oini" style="background:linear-gradient(135deg,#12A07A,#0B7C63);">NL</span><span><span class="oname">Northwind Labs</span><span class="osub">38 members · 2 stores</span></span><span class="check">✓</span></button>
+      <button class="orgopt" type="button" data-org="recourse"><span class="oini" style="background:linear-gradient(135deg,#2A6FDB,#1B4FA8);">RS</span><span><span class="oname">Recourse Software</span><span class="osub">9 members · 1 store</span></span><span class="check">✓</span></button>
+    </div>
+  </div>
+  <span class="spacer"></span>
+  <button class="searchbtn" type="button">
+    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#A1A1B2" stroke-width="2.4" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
+    Search resources, docs, actions…
+    <kbd>⌘K</kbd>
+  </button>
+  <span class="spacer"></span>
+  <div class="roleseg">
+    <button type="button" data-role="platform">Platform admin</button>
+    <button type="button" data-role="security">IT / Security</button>
+    <button type="button" data-role="dept">Dept lead</button>
+  </div>
+  <a class="avatar" href="profile.html" title="Profile &amp; account">JA</a>
+</header>
+
+<div class="frame">
+  <aside class="sidebar">
+
+      <div class="navsec">
+        <div class="ntitle">Manage</div>
+        <div class="nitems">
+          <a class="navitem" data-roles="platform security dept" href="index.html">Overview</a>
+          <a class="navitem active" data-roles="platform dept" href="stores.html">Knowledge stores</a>
+          <a class="navitem" data-roles="platform dept" href="provision.html">Provision</a>
+          <a class="navitem" data-roles="platform security" href="organization.html">Organization</a>
+        </div>
+      </div>
+
+      <div class="navsec">
+        <div class="ntitle">Identity & infra</div>
+        <div class="nitems">
+          <a class="navitem" data-roles="platform security" href="sso.html">SSO & identity</a>
+          <a class="navitem" data-roles="platform security" href="connectors.html">Connectors</a>
+          <a class="navitem" data-roles="platform security" href="helm.html">Helm charts</a>
+        </div>
+      </div>
+
+      <div class="navsec">
+        <div class="ntitle">Govern</div>
+        <div class="nitems">
+          <a class="navitem" data-roles="platform security" href="governance.html">Governance</a>
+          <a class="navitem" data-roles="platform security" href="audit.html">Audit log</a>
+          <a class="navitem" data-roles="platform security" href="naming.html">Naming policy</a>
+        </div>
+      </div>
+
+      <div class="navsec">
+        <div class="ntitle">Account</div>
+        <div class="nitems">
+          <a class="navitem" data-roles="platform dept" href="billing.html">Billing & pricing</a>
+        </div>
+      </div>
+    <a class="statusbox" href="status.html">
+      <span class="srow"><span class="sdot"></span>All systems operational</span>
+      <span class="ssub">SOC 2 Type II · HIPAA · ISO 27001</span>
+      <span class="slink">View status page →</span>
+    </a>
+  </aside>
+  <main class="main">
+    <div class="content">
+
+<a class="backlink" href="stores.html">← All knowledge stores</a>
+<div style="display:flex; align-items:center; gap:14px; margin-bottom:6px;">
+  <span id="dTitle" style="font:800 22px 'JetBrains Mono'; letter-spacing:-.02em;">kd-eng-prod-codebase</span>
+  <span id="dChip"></span>
+</div>
+<div class="psub" id="dSub" style="margin-bottom:20px;"></div>
+<div class="grid4" id="dKpis"></div>
+<div style="display:flex; gap:2px; border-bottom:1px solid #ECE9F7; margin-bottom:16px;" id="dTabs">
+  <button class="tabbtn" data-tab="indexes" style="padding:10px 16px; border:none; border-bottom:2.5px solid #6C5CE7; background:none; cursor:pointer; font:700 13px 'Plus Jakarta Sans'; color:#4B3FC4;">Indexes</button>
+  <button class="tabbtn" data-tab="access" style="padding:10px 16px; border:none; border-bottom:2.5px solid transparent; background:none; cursor:pointer; font:600 13px 'Plus Jakarta Sans'; color:#8C8C9E;">Access</button>
+  <button class="tabbtn" data-tab="activity" style="padding:10px 16px; border:none; border-bottom:2.5px solid transparent; background:none; cursor:pointer; font:600 13px 'Plus Jakarta Sans'; color:#8C8C9E;">Activity</button>
+</div>
+
+<div class="tabpane" id="pane-indexes">
+  <div class="card" style="overflow:hidden;">
+    <div class="thead" style="grid-template-columns:1.8fr 1fr 1fr 1fr 1fr;"><span>Index</span><span>Embedding model</span><span>Dimensions</span><span>Vectors</span><span>Freshness</span></div>
+    <div class="trow" style="grid-template-columns:1.8fr 1fr 1fr 1fr 1fr;"><span class="td mono" style="color:#33334A;">primary-hnsw</span><span class="td">kd-embed-3-large</span><span class="td mono2">3072</span><span class="td b dVectors">412M</span><span class="td" style="color:#12A07A;">live · 2 min lag</span></div>
+    <div class="trow" style="grid-template-columns:1.8fr 1fr 1fr 1fr 1fr;"><span class="td mono" style="color:#33334A;">sparse-bm25</span><span class="td">hybrid-sparse</span><span class="td mono2">—</span><span class="td b dVectors">412M</span><span class="td" style="color:#12A07A;">live · 2 min lag</span></div>
+    <div class="trow" style="grid-template-columns:1.8fr 1fr 1fr 1fr 1fr;"><span class="td mono" style="color:#33334A;">summaries-v2</span><span class="td">kd-embed-3-small</span><span class="td mono2">1536</span><span class="td b">1.2M</span><span class="td" style="color:#12A07A;">nightly</span></div>
+  </div>
+</div>
+<div class="tabpane hidden" id="pane-access">
+  <div class="card" style="overflow:hidden;">
+    <div class="thead" style="grid-template-columns:1.6fr 1.4fr 1fr 1fr;"><span>Principal</span><span>Source</span><span>Role</span><span>Granted</span></div>
+    <div class="trow" style="grid-template-columns:1.6fr 1.4fr 1fr 1fr;"><span class="td b">okta/eng-all</span><span class="td mono2">SSO group · SCIM</span><span class="chip gray">Member</span><span class="td dim">Mar 4, 2026</span></div>
+    <div class="trow" style="grid-template-columns:1.6fr 1.4fr 1fr 1fr;"><span class="td b">okta/eng-ml</span><span class="td mono2">SSO group · SCIM</span><span class="chip violet">Admin</span><span class="td dim">Mar 4, 2026</span></div>
+    <div class="trow" style="grid-template-columns:1.6fr 1.4fr 1fr 1fr;"><span class="td b">svc-ci-indexer</span><span class="td mono2">Service account</span><span class="chip gray">Writer</span><span class="td dim">Mar 6, 2026</span></div>
+    <div class="trow" style="grid-template-columns:1.6fr 1.4fr 1fr 1fr;"><span class="td b">okta/dept-leads</span><span class="td mono2">SSO group · SCIM</span><span class="chip blue">Auditor</span><span class="td dim">Apr 1, 2026</span></div>
+  </div>
+</div>
+<div class="tabpane hidden" id="pane-activity">
+  <div class="card" style="padding:6px 20px;">
+    <div style="display:grid; grid-template-columns:150px 1fr; gap:14px; padding:12px 0; border-bottom:1px solid #F5F3FC;"><span class="td mono2">10:02 UTC today</span><span class="td">Replica added (auto-mitigation)</span></div>
+    <div style="display:grid; grid-template-columns:150px 1fr; gap:14px; padding:12px 0; border-bottom:1px solid #F5F3FC;"><span class="td mono2">09:12 UTC today</span><span class="td">p95 latency threshold exceeded — alert routed to #kd-ops</span></div>
+    <div style="display:grid; grid-template-columns:150px 1fr; gap:14px; padding:12px 0; border-bottom:1px solid #F5F3FC;"><span class="td mono2">Yesterday 22:10</span><span class="td">Nightly re-embed of summaries-v2 completed (1.2M vectors)</span></div>
+    <div style="display:grid; grid-template-columns:150px 1fr; gap:14px; padding:12px 0; border-bottom:1px solid #F5F3FC;"><span class="td mono2">Jul 8, 14:31</span><span class="td">Access grant: okta/dept-leads → Auditor</span></div>
+  </div>
+</div>
+    </div>
+  </main>
+</div>
+
+<script src="js/shell.js"></script>
+<script>
+
+/* Store detail: hydrate from ?id= and wire tabs */
+var STORES = {
+  'kd-eng-prod-codebase':  { dept:'Engineering', target:'In-VPC',  region:'us-east-1', vectors:'412M', status:'healthy',  cost:'$4,210', qps:'312', p95:'96 ms' },
+  'kd-rsch-prod-papers':   { dept:'Research',    target:'Managed', region:'us-east-1', vectors:'128M', status:'healthy',  cost:'$1,485', qps:'220', p95:'101 ms' },
+  'kd-fin-prod-invoices':  { dept:'Finance',     target:'BYO S3',  region:'us-east-1', vectors:'86M',  status:'healthy',  cost:'$980',   qps:'145', p95:'104 ms' },
+  'kd-legal-prod-contracts':{ dept:'Legal',      target:'Managed', region:'eu-west-1', vectors:'54M',  status:'degraded', cost:'$742',   qps:'60',  p95:'410 ms' },
+  'kd-sales-stg-calls':    { dept:'Sales',       target:'Managed', region:'us-west-2', vectors:'31M',  status:'indexing', cost:'$390',   qps:'—',   p95:'—' },
+  'kd-hr-prod-policies':   { dept:'People Ops',  target:'On-prem', region:'dc-tor-01', vectors:'8M',   status:'healthy',  cost:'$0',     qps:'12',  p95:'88 ms' }
+};
+var id = new URLSearchParams(location.search).get('id') || 'kd-eng-prod-codebase';
+var s = STORES[id] || STORES['kd-eng-prod-codebase'];
+document.getElementById('dTitle').textContent = id;
+document.title = id + ' — KnowDrive Enterprise Console';
+var chipMap = { healthy:['green','● Healthy'], degraded:['amber','● Degraded'], indexing:['violet','◌ Indexing'] };
+document.getElementById('dChip').outerHTML = '<span class="chip ' + chipMap[s.status][0] + '">' + chipMap[s.status][1] + '</span>';
+document.getElementById('dSub').textContent = s.dept + ' · ' + s.target + ' · ' + s.region + ' · created Mar 4, 2026';
+document.getElementById('dKpis').innerHTML = [
+  ['Vectors', s.vectors], ['QPS now', s.qps], ['p95 latency', s.p95], ['Cost · MTD', s.cost]
+].map(function (k) {
+  return '<div class="kpi"><div class="kl">' + k[0] + '</div><div class="kv" style="font-size:21px; margin-top:6px;">' + k[1] + '</div></div>';
+}).join('');
+document.querySelectorAll('.dVectors').forEach(function (el) { el.textContent = s.vectors; });
+
+document.getElementById('dTabs').addEventListener('click', function (e) {
+  var b = e.target.closest('.tabbtn'); if (!b) return;
+  document.querySelectorAll('.tabbtn').forEach(function (t) {
+    var on = t === b;
+    t.style.borderBottomColor = on ? '#6C5CE7' : 'transparent';
+    t.style.color = on ? '#4B3FC4' : '#8C8C9E';
+    t.style.fontWeight = on ? '700' : '600';
+  });
+  document.querySelectorAll('.tabpane').forEach(function (p) {
+    p.classList.toggle('hidden', p.id !== 'pane-' + b.dataset.tab);
+  });
+});
+</script>
+</body>
+</html>
