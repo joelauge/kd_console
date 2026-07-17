@@ -140,9 +140,9 @@
   <div class="wpanel card hidden" data-panel="3" style="padding:26px 28px;">
     <div class="ctitle" style="font-size:15px; margin-bottom:18px;">Capacity &amp; compute</div>
     <div style="display:grid; grid-template-columns:1fr 1fr 1fr; gap:12px; margin-bottom:20px;" id="wTier">
-      <button class="selcard" data-v="standard" type="button"><span class="st">Standard</span><span class="sp">$490/mo</span><span class="sd">Up to 25M vectors · 4 vCPU workers · 99.9% SLO</span></button>
-      <button class="selcard active" data-v="performance" type="button"><span class="st">Performance</span><span class="sp">$1,450/mo</span><span class="sd">Up to 150M vectors · 16 vCPU workers · 99.95% SLO</span></button>
-      <button class="selcard" data-v="dedicated" type="button"><span class="st">Dedicated</span><span class="sp">$4,900/mo</span><span class="sd">1B+ vectors · 64 vCPU dedicated · 99.99% SLO</span></button>
+      <button class="selcard" data-v="standard" type="button"><span class="st">Standard</span><span class="sp">$490/mo</span><span class="sd">25M atoms included · 4 vCPU workers · 99.9% SLO</span></button>
+      <button class="selcard active" data-v="performance" type="button"><span class="st">Performance</span><span class="sp">$1,450/mo</span><span class="sd">150M atoms included · 16 vCPU workers · 99.95% SLO</span></button>
+      <button class="selcard" data-v="dedicated" type="button"><span class="st">Dedicated</span><span class="sp">$4,900/mo</span><span class="sd">1B+ atoms · 64 vCPU dedicated · 99.99% SLO</span></button>
     </div>
     <div class="flabel">Region</div>
     <div class="chiprow" id="wRegion" style="margin-bottom:20px;">
@@ -209,6 +209,7 @@
       <span style="font:700 13px 'Plus Jakarta Sans'; color:#2A2A3C;">Estimated monthly cost</span>
       <span style="font:800 20px 'Plus Jakarta Sans'; color:#4B3FC4;" id="wCost"></span>
     </div>
+    <div style="font:500 11.5px 'Plus Jakarta Sans'; color:#9A95B5; margin-top:10px; line-height:1.6;">Usage beyond the included allowance is metered in atoms: storage $1.65 / M atoms / mo · writes $5.00 / M · reads $0.04 / M (min 320K per query). Vector counts are informational.</div>
   </div>
 
   <!-- Deploying -->

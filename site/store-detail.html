@@ -95,7 +95,7 @@
   <span id="dChip"></span>
 </div>
 <div class="psub" id="dSub" style="margin-bottom:20px;"></div>
-<div class="grid4" id="dKpis"></div>
+<div class="grid4" id="dKpis" style="grid-template-columns:repeat(3,1fr);"></div>
 <div style="display:flex; gap:2px; border-bottom:1px solid #ECE9F7; margin-bottom:16px;" id="dTabs">
   <button class="tabbtn" data-tab="indexes" style="padding:10px 16px; border:none; border-bottom:2.5px solid #6C5CE7; background:none; cursor:pointer; font:700 13px 'Plus Jakarta Sans'; color:#4B3FC4;">Indexes</button>
   <button class="tabbtn" data-tab="access" style="padding:10px 16px; border:none; border-bottom:2.5px solid transparent; background:none; cursor:pointer; font:600 13px 'Plus Jakarta Sans'; color:#8C8C9E;">Access</button>
@@ -136,12 +136,12 @@
 
 /* Store detail: hydrate from ?id= and wire tabs */
 var STORES = {
-  'kd-eng-prod-codebase':  { dept:'Engineering', target:'In-VPC',  region:'us-east-1', vectors:'412M', status:'healthy',  cost:'$4,210', qps:'312', p95:'96 ms' },
-  'kd-rsch-prod-papers':   { dept:'Research',    target:'Managed', region:'us-east-1', vectors:'128M', status:'healthy',  cost:'$1,485', qps:'220', p95:'101 ms' },
-  'kd-fin-prod-invoices':  { dept:'Finance',     target:'BYO S3',  region:'us-east-1', vectors:'86M',  status:'healthy',  cost:'$980',   qps:'145', p95:'104 ms' },
-  'kd-legal-prod-contracts':{ dept:'Legal',      target:'Managed', region:'eu-west-1', vectors:'54M',  status:'degraded', cost:'$742',   qps:'60',  p95:'410 ms' },
-  'kd-sales-stg-calls':    { dept:'Sales',       target:'Managed', region:'us-west-2', vectors:'31M',  status:'indexing', cost:'$390',   qps:'—',   p95:'—' },
-  'kd-hr-prod-policies':   { dept:'People Ops',  target:'On-prem', region:'dc-tor-01', vectors:'8M',   status:'healthy',  cost:'$0',     qps:'12',  p95:'88 ms' }
+  'kd-eng-prod-codebase':  { dept:'Engineering', target:'In-VPC',  region:'us-east-1', atoms:'398M', reads:'4.1B', vectors:'412M', status:'healthy',  cost:'$4,210', qps:'312', p95:'96 ms' },
+  'kd-rsch-prod-papers':   { dept:'Research',    target:'Managed', region:'us-east-1', atoms:'124M', reads:'1.9B', vectors:'128M', status:'healthy',  cost:'$1,485', qps:'220', p95:'101 ms' },
+  'kd-fin-prod-invoices':  { dept:'Finance',     target:'BYO S3',  region:'us-east-1', atoms:'83M', reads:'1.2B', vectors:'86M',  status:'healthy',  cost:'$980',   qps:'145', p95:'104 ms' },
+  'kd-legal-prod-contracts':{ dept:'Legal',      target:'Managed', region:'eu-west-1', atoms:'52M', reads:'610M', vectors:'54M',  status:'degraded', cost:'$742',   qps:'60',  p95:'410 ms' },
+  'kd-sales-stg-calls':    { dept:'Sales',       target:'Managed', region:'us-west-2', atoms:'30M', reads:'—', vectors:'31M',  status:'indexing', cost:'$390',   qps:'—',   p95:'—' },
+  'kd-hr-prod-policies':   { dept:'People Ops',  target:'On-prem', region:'dc-tor-01', atoms:'7.8M', reads:'95M', vectors:'8M',   status:'healthy',  cost:'$0',     qps:'12',  p95:'88 ms' }
 };
 var id = new URLSearchParams(location.search).get('id') || 'kd-eng-prod-codebase';
 var s = STORES[id] || STORES['kd-eng-prod-codebase'];
@@ -151,7 +151,7 @@ var chipMap = { healthy:['green','● Healthy'], degraded:['amber','● Degraded
 document.getElementById('dChip').outerHTML = '<span class="chip ' + chipMap[s.status][0] + '">' + chipMap[s.status][1] + '</span>';
 document.getElementById('dSub').textContent = s.dept + ' · ' + s.target + ' · ' + s.region + ' · created Mar 4, 2026';
 document.getElementById('dKpis').innerHTML = [
-  ['Vectors', s.vectors], ['QPS now', s.qps], ['p95 latency', s.p95], ['Cost · MTD', s.cost]
+  ['Atoms (billed)', s.atoms], ['Vectors', s.vectors], ['Atoms read · MTD', s.reads], ['QPS now', s.qps], ['p95 latency', s.p95], ['Cost · MTD', s.cost]
 ].map(function (k) {
   return '<div class="kpi"><div class="kl">' + k[0] + '</div><div class="kv" style="font-size:21px; margin-top:6px;">' + k[1] + '</div></div>';
 }).join('');

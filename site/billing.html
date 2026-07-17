@@ -90,7 +90,13 @@
     <div class="content">
 
 <h1 class="pt">Billing &amp; pricing</h1>
-<div class="psub" style="margin-bottom:22px;">Enterprise plan · annual commit · invoiced monthly</div>
+<div class="psub" style="margin-bottom:22px;">Enterprise plan · metered in atoms · annual commit, invoiced monthly</div>
+<div class="grid4">
+  <div class="kpi"><div class="kl">Atoms stored</div><div class="krow"><span class="kv">698M</span><span class="kd up">+4.1%</span></div><div class="ks">719M vectors · $1,152 MTD</div></div>
+  <div class="kpi"><div class="kl">Atoms written · MTD</div><div class="krow"><span class="kv">61M</span><span class="kd up">+9.2%</span></div><div class="ks">ingest &amp; re-embeds · $305</div></div>
+  <div class="kpi"><div class="kl">Atoms read · MTD</div><div class="krow"><span class="kv">7.9B</span><span class="kd up">+12.8%</span></div><div class="ks">41.2M queries · $316</div></div>
+  <div class="kpi"><div class="kl">Plan minimum</div><div class="krow"><span class="kv">$5,120</span></div><div class="ks">Enterprise · usage credits toward minimum</div></div>
+</div>
 <div style="display:grid; grid-template-columns:1.4fr 1fr; gap:14px;" class="section-gap">
   <div class="card pad">
     <div class="ctitle" style="margin-bottom:16px;">Spend by department · July MTD</div>
@@ -104,11 +110,14 @@
     </div>
   </div>
   <div class="card pad">
-    <div class="ctitle" style="margin-bottom:14px;">Unit pricing</div>
-    <div style="display:flex; justify-content:space-between; padding:9px 0; border-bottom:1px solid #F5F3FC;"><span class="td" style="font-size:12.5px; color:#5A5A6E;">Vector storage</span><span class="td mono" style="font-weight:700; color:#2A2A3C;">$0.28 / M / mo</span></div>
-    <div style="display:flex; justify-content:space-between; padding:9px 0; border-bottom:1px solid #F5F3FC;"><span class="td" style="font-size:12.5px; color:#5A5A6E;">Queries</span><span class="td mono" style="font-weight:700; color:#2A2A3C;">$0.90 / M</span></div>
+    <div class="ctitle" style="margin-bottom:2px;">Atom metering</div>
+<div style="font:500 11.5px 'Plus Jakarta Sans'; color:#9A95B5; margin-bottom:10px;">Billing is metered in atoms — reads &amp; writes of indexed units of meaning. Vector counts are informational.</div>
+    <div style="display:flex; justify-content:space-between; padding:9px 0; border-bottom:1px solid #F5F3FC;"><span class="td" style="font-size:12.5px; color:#5A5A6E;">Atom storage</span><span class="td mono" style="font-weight:700; color:#2A2A3C;">$1.65 / M atoms / mo</span></div>
+    <div style="display:flex; justify-content:space-between; padding:9px 0; border-bottom:1px solid #F5F3FC;"><span class="td" style="font-size:12.5px; color:#5A5A6E;">Atom reads</span><span class="td mono" style="font-weight:700; color:#2A2A3C;">$0.04 / M atoms</span></div>
     <div style="display:flex; justify-content:space-between; padding:9px 0; border-bottom:1px solid #F5F3FC;"><span class="td" style="font-size:12.5px; color:#5A5A6E;">Compute (autoscale)</span><span class="td mono" style="font-weight:700; color:#2A2A3C;">$0.11 / vCPU-hr</span></div>
     <div style="display:flex; justify-content:space-between; padding:9px 0; border-bottom:1px solid #F5F3FC;"><span class="td" style="font-size:12.5px; color:#5A5A6E;">Ingest & embedding</span><span class="td mono" style="font-weight:700; color:#2A2A3C;">$0.45 / GB</span></div>
+    <div style="display:flex; justify-content:space-between; padding:9px 0; border-bottom:1px solid #F5F3FC;"><span class="td" style="font-size:12.5px; color:#5A5A6E;">Min billable per query</span><span class="td mono" style="font-weight:700; color:#2A2A3C;">320K atoms</span></div>
+    <div style="display:flex; justify-content:space-between; padding:9px 0; border-bottom:1px solid #F5F3FC;"><span class="td" style="font-size:12.5px; color:#5A5A6E;">Store branching (copy-on-write)</span><span class="td mono" style="font-weight:700; color:#2A2A3C;">50% write discount</span></div>
     <div style="display:flex; justify-content:space-between; padding:9px 0; border-bottom:1px solid #F5F3FC;"><span class="td" style="font-size:12.5px; color:#5A5A6E;">In-VPC surcharge</span><span class="td mono" style="font-weight:700; color:#2A2A3C;">+18%</span></div>
     <div style="display:flex; justify-content:space-between; padding:9px 0; border-bottom:1px solid #F5F3FC;"><span class="td" style="font-size:12.5px; color:#5A5A6E;">On-prem license</span><span class="td mono" style="font-weight:700; color:#2A2A3C;">Annual, per node</span></div>
   </div>
